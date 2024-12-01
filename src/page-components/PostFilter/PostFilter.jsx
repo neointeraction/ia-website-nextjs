@@ -83,9 +83,9 @@ function PostFilter({ postsData, home }) {
       <PostContainer>
         <Stack gap="lg">
           {filteredPosts.map((post, index) => (
-            <Grid align="center">
+            <Grid align="center" key={index}>
               <Grid.Col span={9}>
-                <PostBlock key={index}>
+                <PostBlock>
                   <PostTitle>{post.title}</PostTitle>
                   <PostBody>{post.content}</PostBody>
                   <PostDate>{post.date}</PostDate>
