@@ -1,4 +1,4 @@
-import { Group } from "@mantine/core";
+import { Box, Group } from "@mantine/core";
 import { TextSliderTitle } from "../TextSlider.styles";
 
 const TextSliderBlock = ({ text }) => {
@@ -7,7 +7,7 @@ const TextSliderBlock = ({ text }) => {
 
   return (
     <Group gap="xs" className="text-slider-block" align="center">
-      <div>
+      <Box component="div">
         <svg
           width="36"
           height="34"
@@ -22,7 +22,7 @@ const TextSliderBlock = ({ text }) => {
             fill={randomColor}
           />
         </svg>
-      </div>
+      </Box>
       <TextSliderTitle>{text}</TextSliderTitle>
     </Group>
   );

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Divider, Grid, Group, UnstyledButton } from "@mantine/core";
+import { Box, Divider, Grid, Group, UnstyledButton } from "@mantine/core";
 import {
   CopyrightText,
   FooterContainer,
@@ -136,11 +136,11 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <div className="container">
+      <Box component="div" className="container">
         <LogoSocialBlock>
           <Grid align="flex-end">
             <Grid.Col span={3}>
-              <div>
+              <Box component="div">
                 <Image
                   src={FooterLogo}
                   width={237}
@@ -148,12 +148,12 @@ const Footer = () => {
                   alt="footer-logo"
                 />
                 <LogoSubText>Seeding the Future of Innovation</LogoSubText>
-              </div>
+              </Box>
             </Grid.Col>
             <Grid.Col span={3}></Grid.Col>
             <Grid.Col span={3}></Grid.Col>
             <Grid.Col span={3}>
-              <div>
+              <Box component="div">
                 <Group>
                   <UnstyledButton>
                     <Image src={FB} width={32} height={32} alt="facebook" />
@@ -168,7 +168,7 @@ const Footer = () => {
                     <Image src={YT} width={32} height={32} alt="youtube" />
                   </UnstyledButton>
                 </Group>
-              </div>
+              </Box>
             </Grid.Col>
           </Grid>
         </LogoSocialBlock>
@@ -183,7 +183,7 @@ const Footer = () => {
         <CopyrightText>
           © iAccel India Accelerator Private Limited, 2024. All Rights Reserved.
         </CopyrightText>
-      </div>
+      </Box>
     </FooterContainer>
   );
 };

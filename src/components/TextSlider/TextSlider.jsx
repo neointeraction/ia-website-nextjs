@@ -1,3 +1,4 @@
+import { Box } from "@mantine/core";
 import Marquee from "react-fast-marquee";
 import { TextSliderContainer } from "./TextSlider.styles";
 import TextSliderBlock from "./components/TextSliderBlock";
@@ -19,9 +20,9 @@ const TextSlider = () => {
     <TextSliderContainer>
       <Marquee pauseOnHover>
         {TextSliderData.map((item, index) => (
-          <div key={index}>
+          <Box component="div" key={index}>
             <TextSliderBlock text={item.text} />
-          </div>
+          </Box>
         ))}
       </Marquee>
     </TextSliderContainer>
