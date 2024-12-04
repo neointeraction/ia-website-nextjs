@@ -13,83 +13,17 @@ import StarRed from "@/images/star-red.svg";
 import StarBlue from "@/images/star-blue.svg";
 import StarGreen from "@/images/star-green.svg";
 
-// temps
-import BlogImg1 from "@/images/temp/1.png";
-import BlogImg2 from "@/images/temp/2.png";
-import BlogImg3 from "@/images/temp/3.png";
-
-// temp images - to be removed
-import Logo1 from "@/images/temp/4.png";
-import Logo2 from "@/images/temp/5.png";
-import Logo3 from "@/images/temp/6.png";
-import Logo4 from "@/images/temp/7.png";
-import Logo5 from "@/images/temp/8.png";
-import Logo6 from "@/images/temp/9.png";
-import Logo7 from "@/images/temp/10.png";
 import CardTypeASection from "@/page-components/CardTypeASection";
 import StartupJourney from "@/page-components/StartupJourney";
-
-const dataClient = [
-  {
-    logoImg: Logo1,
-  },
-  {
-    logoImg: Logo2,
-  },
-  {
-    logoImg: Logo3,
-  },
-  {
-    logoImg: Logo4,
-  },
-  {
-    logoImg: Logo5,
-  },
-  {
-    logoImg: Logo6,
-  },
-  {
-    logoImg: Logo7,
-  },
-];
-
-const filteredPostsData = [
-  {
-    title: "Denta Mitra revenue grows 200% in FY 22, reaching INR 30 Million",
-    date: "20th September, 2024",
-    category: "News",
-    blogImg: BlogImg1,
-    content:
-      "Denta Mitra, India's exclusive dental marketplace that brings quality dental care to patients' homes, has experienced a remarkable increase in revenue...",
-  },
-  {
-    title:
-      "Armour Heavy performance wear closes seed round led by India Accelerator",
-    date: "20th September, 2024",
-    category: "News",
-    blogImg: BlogImg2,
-    content:
-      "Denta Mitra, India's exclusive dental marketplace that brings quality dental care to patients' homes, has experienced a remarkable increase...",
-  },
-  {
-    title:
-      "India Accelerator partners with Z Nation Lab, expands to Silicon Valley",
-    date: "20th September, 2024",
-    category: "News",
-    blogImg: BlogImg3,
-    content:
-      "Denta Mitra, India's exclusive dental marketplace that brings quality dental care to patients' homes, has experienced a remarkable increase in revenue. In the fiscal year 2022-23, their revenue soared by three times, reaching INR 30 millio...",
-  },
-  {
-    title:
-      "India Accelerator partners with Z Nation Lab, expands to Silicon Valley",
-    date: "20th September, 2024",
-    category: "Blogs",
-    blogImg: BlogImg1,
-    content:
-      "Denta Mitra, India's exclusive dental marketplace that brings quality dental care to patients' homes, has experienced a remarkable increase in revenue. In the fiscal year 2022-23, their revenue soared by three times, reaching INR 30 millio...",
-  },
-];
+import MentorsSection from "@/page-components/MentorsSection";
+import {
+  dataClient,
+  filteredPostsData,
+  homeMilestoneData,
+  mentorsData,
+} from "@/mock/data";
+import StrategicFocusSection from "@/page-components/StrategicFocusSection";
+import MilestoneSection from "@/page-components/MilestoneSection";
 
 const home = () => {
   return (
@@ -119,6 +53,41 @@ const home = () => {
           data={dataClient}
         />
       </Section>
+      <Section>
+        <MilestoneSection
+          title={
+            <>
+              Awarded{" "}
+              <Box component="span" className="highlight">
+                “best accelerator of India”
+              </Box>{" "}
+              in 2022 by the Government of India
+              <Box component="span" ml={14}>
+                <Image src={Arrow} alt="Arrow" width={24} height={24} />
+              </Box>
+            </>
+          }
+          subtitle="IA offers unmatched support, expert mentorship, and tailored growth solutions to empower startups at every stage."
+          data={homeMilestoneData}
+        />
+      </Section>
+      <Section>
+        <MentorsSection
+          title={
+            <>
+              <Box component="span" className="highlight">
+                Expert Mentorship
+              </Box>{" "}
+              from Industry Leaders
+              <Box component="span" ml={14}>
+                <Image src={Arrow} alt="Arrow" width={24} height={24} />
+              </Box>
+            </>
+          }
+          subtitle="Our network of mentors helps startups overcome challenges and scale with confidence."
+          data={mentorsData}
+        />
+      </Section>
       <Section $hasTexture>
         <ClientMarquee
           title={
@@ -133,6 +102,19 @@ const home = () => {
             </>
           }
           data={dataClient}
+        />
+      </Section>
+      <Section>
+        <StrategicFocusSection
+          title={
+            <>
+              <Box component="span" className="highlight">
+                Six Theses
+              </Box>{" "}
+              Defining Our Strategic Focus
+            </>
+          }
+          subtitle="Driving innovation through six strategic focus areas."
         />
       </Section>
       <Section>

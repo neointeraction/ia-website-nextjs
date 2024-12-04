@@ -65,3 +65,14 @@ a {
   border: 1px solid #0f0f0f;
   transition: 0.3s all ease-in-out;
 }
+
+.hover-card-body {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.hover-card-target {
+  border-bottom: 1px solid #b7b7b7;
+  width: 500px;
+}

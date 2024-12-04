@@ -1,5 +1,6 @@
 {
   "name": "ia-website-nextjs",
+  "author": "Shameer M - Neointeraction - 2024",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,9 +16,11 @@
     "@tabler/icons-react": "^3.23.0",
     "next": "15.0.3",
     "react": "^18.3.1",
+    "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.5",
     "react-slick": "^0.30.2",
+    "react-visibility-sensor": "^5.1.1",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {

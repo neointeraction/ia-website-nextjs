@@ -8,10 +8,8 @@ import {
   Drawer,
   Grid,
   Group,
-  HoverCard,
   Popover,
   ScrollArea,
-  SimpleGrid,
   Text,
   ThemeIcon,
   UnstyledButton,
@@ -100,12 +98,7 @@ export default function Topbar() {
         <div className="container">
           <HeaderFlex>
             <HeaderFlexItem>
-              <Image
-                src={Logo}
-                width={55}
-                height={37}
-                alt="Picture of the author"
-              />
+              <Image src={Logo} width={208} height={24} alt="Logo" />
             </HeaderFlexItem>
             <HeaderFlexItem $grow>
               <Group h="100%" gap={0} visibleFrom="sm">
@@ -257,7 +250,7 @@ export default function Topbar() {
               </Group>
             </HeaderFlexItem>
             <HeaderFlexItem>
-              <Group visibleFrom="sm">
+              <Group visibleFrom="sm" gap="xs">
                 <Button variant="default" radius="xl" className="btn-secondary">
                   Let’s Chat
                 </Button>

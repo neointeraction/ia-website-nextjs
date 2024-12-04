@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SectionSubTitle, SectionTitle } from "@/styles/main.styles";
 import {
   HoveringImageblock,
+  SJCTitle,
   StartupJourneyCardFlex,
   StartupJourneyContainer,
 } from "./StartupJourney.styles";
@@ -67,7 +68,7 @@ const StartupJourney = () => {
                   alt={item.image}
                 />
               </HoveringImageblock>
-              <h4>{item.text}</h4>
+              <SJCTitle>{item.text}</SJCTitle>
             </Box>
           ))}
         </StartupJourneyCardFlex>

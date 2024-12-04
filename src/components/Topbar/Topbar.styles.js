@@ -25,7 +25,7 @@ export const Header = styled.div`
     color: #0f0f0f;
     font-size: 16px;
     font-weight: 400;
-    padding: 28px 16px;
+    padding: 28px 8px;
   }
 
   @media (max-width: 768px) {

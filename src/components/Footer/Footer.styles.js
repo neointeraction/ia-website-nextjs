@@ -34,8 +34,13 @@ export const FooterLink = styled.a`
   color: #b7b7b7;
   margin-bottom: 16px;
   display: block;
+  transition: 0.3s all ease-in-out;
   &:last-child {
     margin-bottom: 0;
+  }
+  &:hover {
+    transition: 0.3s all ease-in-out;
+    color: #fdfdfd;
   }
 `;
 
