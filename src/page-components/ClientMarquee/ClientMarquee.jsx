@@ -21,7 +21,7 @@ const ClientMarquee = ({ title, subtitle, data }) => {
               <ClientLogoItem key={index}>
                 <Image
                   src={item.logoImg}
-                  style={{ width: "100%", height: "auto" }}
+                  // style={{ width: "100%", height: "auto" }}
                   alt="client-logo"
                 />
               </ClientLogoItem>

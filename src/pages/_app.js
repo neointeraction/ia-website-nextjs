@@ -6,6 +6,7 @@ import "@fontsource/open-sauce-two/600.css";
 import "@mantine/core/styles.css";
 import "@/styles/globals.css";
 import "@/styles/bootstrap-grid.css";
+import "@mantine/carousel/styles.css";
 
 import Topbar from "@/components/Topbar";
 import TextSlider from "@/components/TextSlider";

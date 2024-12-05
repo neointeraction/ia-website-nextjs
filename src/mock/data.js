@@ -15,6 +15,7 @@ import Img11 from "@/images/temp/11.png";
 import Img12 from "@/images/temp/12.png";
 import Img13 from "@/images/temp/13.png";
 import Img14 from "@/images/temp/14.png";
+import Img15 from "@/images/temp/ss.png";
 
 export const dataClient = [
   {
@@ -117,5 +118,43 @@ export const homeMilestoneData = [
   {
     count: 400,
     label: "Founders",
+  },
+];
+
+export const successStoryData = [
+  {
+    name: "Rehman Khan",
+    category: "Founders",
+    img: Img15,
+    story:
+      "Noraa's association with India Accelerator has been a strategic advantage. Their comprehensive support, including funding guidance and networking opportunities, has been a catalyst in our startup's progress. With their backing, we've navigated the challenges of entrepreneurship with confidence.",
+  },
+  {
+    name: "Kautuk Sri",
+    category: "Investors",
+    img: Img15,
+    story:
+      "Noraa's association with India Accelerator has been a strategic advantage. Their comprehensive support, including funding guidance and networking opportunities, has been a catalyst in our startup's progress. With their backing, we've navigated the challenges of entrepreneurship with confidence.",
+  },
+  {
+    name: "Kautuk Sri",
+    category: "Partners",
+    img: Img15,
+    story:
+      "Noraa's association with India Accelerator has been a strategic advantage. Their comprehensive support, including funding guidance and networking opportunities, has been a catalyst in our startup's progress. With their backing, we've navigated the challenges of entrepreneurship with confidence.",
+  },
+  {
+    name: "Kautuk Sri",
+    category: "Partners",
+    img: Img15,
+    story:
+      "Noraa's association with India Accelerator has been a strategic advantage. Their comprehensive support, including funding guidance and networking opportunities, has been a catalyst in our startup's progress. With their backing, we've navigated the challenges of entrepreneurship with confidence.",
+  },
+  {
+    name: "Kautuk Sri",
+    category: "Mentors",
+    img: Img15,
+    story:
+      "Noraa's association with India Accelerator has been a strategic advantage. Their comprehensive support, including funding guidance and networking opportunities, has been a catalyst in our startup's progress. With their backing, we've navigated the challenges of entrepreneurship with confidence.",
   },
 ];

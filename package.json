@@ -11,15 +11,16 @@
   },
   "dependencies": {
     "@fontsource/open-sauce-two": "^5.1.0",
+    "@mantine/carousel": "^7.14.3",
     "@mantine/core": "^7.14.3",
     "@mantine/hooks": "^7.14.3",
     "@tabler/icons-react": "^3.23.0",
+    "embla-carousel-react": "^7.1.0",
     "next": "15.0.3",
     "react": "^18.3.1",
     "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.5",
-    "react-slick": "^0.30.2",
     "react-visibility-sensor": "^5.1.1",
     "styled-components": "^6.1.13"
   },

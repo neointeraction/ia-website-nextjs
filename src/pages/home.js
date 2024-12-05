@@ -12,6 +12,7 @@ import Arrow from "@/images/title-arrow.svg";
 import StarRed from "@/images/star-red.svg";
 import StarBlue from "@/images/star-blue.svg";
 import StarGreen from "@/images/star-green.svg";
+import DeepTech from "@/images/SVGIcons/DeepTech";
 
 import CardTypeASection from "@/page-components/CardTypeASection";
 import StartupJourney from "@/page-components/StartupJourney";
@@ -21,9 +22,19 @@ import {
   filteredPostsData,
   homeMilestoneData,
   mentorsData,
+  successStoryData,
 } from "@/mock/data";
 import StrategicFocusSection from "@/page-components/StrategicFocusSection";
 import MilestoneSection from "@/page-components/MilestoneSection";
+import CardTypeBSection from "@/page-components/CardTypeBSection";
+import IAgri from "@/images/SVGIcons/IAgri";
+import Cipher from "@/images/SVGIcons/Cipher";
+import Tech from "@/images/SVGIcons/Tech";
+import Finseed from "@/images/SVGIcons/Finseed";
+import Pulse from "@/images/SVGIcons/Pulse";
+import SuccessStories from "@/page-components/SuccessStories";
+import HomeBanner from "@/page-components/HomeBanner";
+// import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 
 const home = () => {
   return (
@@ -35,6 +46,9 @@ const home = () => {
           <meta name="keywords" content="India Accelerator" />
         </Head>
       </>
+      {/* <>
+        <HomeBanner />
+      </> */}
       <Section $hasTexture>
         <ClientMarquee
           title={
@@ -71,6 +85,9 @@ const home = () => {
           data={homeMilestoneData}
         />
       </Section>
+      {/* <Section>
+        <WhyFoundersChoseIA />
+      </Section> */}
       <Section>
         <MentorsSection
           title={
@@ -87,6 +104,9 @@ const home = () => {
           subtitle="Our network of mentors helps startups overcome challenges and scale with confidence."
           data={mentorsData}
         />
+      </Section>
+      <Section>
+        <SuccessStories data={successStoryData} />
       </Section>
       <Section $hasTexture>
         <ClientMarquee
@@ -115,6 +135,54 @@ const home = () => {
             </>
           }
           subtitle="Driving innovation through six strategic focus areas."
+        />
+      </Section>
+      <Section>
+        <CardTypeBSection
+          title={
+            <>
+              <Box component="span" className="highlight">
+                Accelerator Programs
+              </Box>
+              , And so much more
+              <Box component="span" ml={14}>
+                <Image src={Arrow} alt="Arrow" width={24} height={24} />
+              </Box>
+            </>
+          }
+          subtitle="Our Accelerator Programs  offer curated mentorship, connections, and a comprehensive support system for growth-stage startups."
+          data={[
+            {
+              icon: <IAgri />,
+              title: "IA- iAgri",
+              bodyText: "Fueling the Future of Agriculture",
+            },
+            {
+              icon: <Cipher />,
+              title: "IA Cipher",
+              bodyText: "Fuel your cyber game",
+            },
+            {
+              icon: <DeepTech />,
+              title: "IA Deep Tech",
+              bodyText: "Propelling startup innovation",
+            },
+            {
+              icon: <Tech />,
+              title: "IA'B2B Tech",
+              bodyText: "Fueling the Future of Agriculture",
+            },
+            {
+              icon: <Finseed />,
+              title: "IA Finseed",
+              bodyText: "Fuel your cyber game",
+            },
+            {
+              icon: <Pulse />,
+              title: "IA Pulse",
+              bodyText: "Propelling startup innovation",
+            },
+          ]}
         />
       </Section>
       <Section>

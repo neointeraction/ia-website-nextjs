@@ -16,6 +16,8 @@ export const HeaderFlexItem = styled.div`
 
 export const Header = styled.div`
   background-image: url(@/../header-texture.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .link {
     display: flex;
