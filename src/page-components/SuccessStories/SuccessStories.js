@@ -1,6 +1,9 @@
 import { Box, Button, Grid, Group, Stack } from "@mantine/core";
 import Image from "next/image";
 import { Carousel } from "@mantine/carousel";
+import { useRef } from "react";
+import Autoplay from "embla-carousel-autoplay";
+import Fade from "embla-carousel-fade";
 
 import { SectionTitle } from "@/styles/main.styles";
 import {
@@ -11,6 +14,9 @@ import {
 import { useState } from "react";
 
 const SuccessStories = ({ data }) => {
+  const autoplay = useRef(Autoplay());
+  const fadeAnimation = useRef(Fade());
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [storyPosts, setStoryPosts] = useState(data);
 
@@ -25,13 +31,14 @@ const SuccessStories = ({ data }) => {
 
   return (
     <Box component="div" className="container">
-      <SectionTitle $leftAlign>
+      <SectionTitle $leftAlign data-aos="fade">
         <Box component="span" className="highlight">
           Success Stories
         </Box>{" "}
         from Our Community
       </SectionTitle>
       <Group
+        data-aos="fade"
         justify="flex-start"
         mt={18}
         mb={-100}
@@ -89,8 +96,14 @@ const SuccessStories = ({ data }) => {
         </Button>
       </Group>
       <Box>
-        <CarouselContainer>
-          <Carousel withControls={false} withIndicators>
+        <CarouselContainer data-aos="fade">
+          <Carousel
+            withControls={false}
+            withIndicators
+            plugins={[autoplay.current, fadeAnimation.current]}
+            onMouseEnter={autoplay.current.stop}
+            onMouseLeave={autoplay.current.play}
+          >
             {storyPosts.map((item, index) => (
               <Carousel.Slide key={index}>
                 <Grid align="flex-end">

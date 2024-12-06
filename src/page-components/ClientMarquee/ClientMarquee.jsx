@@ -12,9 +12,11 @@ import { SectionSubTitle, SectionTitle } from "@/styles/main.styles";
 const ClientMarquee = ({ title, subtitle, data }) => {
   return (
     <Box className="container">
-      <SectionTitle>{title}</SectionTitle>
-      {subtitle && <SectionSubTitle>{subtitle}</SectionSubTitle>}
-      <ClientLogoContainer>
+      <SectionTitle data-aos="fade">{title}</SectionTitle>
+      {subtitle && (
+        <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
+      )}
+      <ClientLogoContainer data-aos="fade">
         <Marquee pauseOnHover>
           <ClientLogoFlex>
             {data.map((item, index) => (

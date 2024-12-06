@@ -7,12 +7,14 @@ import Count from "@/components/Count";
 const MilestoneSection = ({ title, subtitle, data }) => {
   return (
     <Box component="div" className="container">
-      <SectionTitle>{title}</SectionTitle>
-      {subtitle && <SectionSubTitle>{subtitle}</SectionSubTitle>}
-      <MilestoneContainerBlock>
+      <SectionTitle data-aos="fade">{title}</SectionTitle>
+      {subtitle && (
+        <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
+      )}
+      <MilestoneContainerBlock data-aos="fade">
         <Grid justify="center" align="center">
           {data.map((item, index) => (
-            <Grid.Col span={3} key={index}>
+            <Grid.Col span={{ base: 6, md: 6, lg: 3 }} key={index}>
               <Box component="div">
                 <Count countValue={item.count} label={item.label} suffix="+" />
               </Box>

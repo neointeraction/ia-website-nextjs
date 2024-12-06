@@ -30,7 +30,7 @@ function PostFilter({ postsData, home }) {
   return (
     <div className="container">
       <Center>
-        <SectionTitle>
+        <SectionTitle data-aos="fade">
           <span className="highlight">Insights</span>
           <span>That Shape Your Path to Success</span>{" "}
           <span>
@@ -38,7 +38,7 @@ function PostFilter({ postsData, home }) {
           </span>
         </SectionTitle>
       </Center>
-      <Group justify="center" mt={20} mb={20}>
+      <Group justify="center" mt={20} mb={20} data-aos="fade">
         <Button
           onClick={() => handleCategoryChange("All")}
           variant={selectedCategory === "All" ? "filled" : "default"}
@@ -83,7 +83,7 @@ function PostFilter({ postsData, home }) {
       <PostContainer>
         <Stack gap="lg">
           {filteredPosts.map((post, index) => (
-            <Grid align="center" key={index}>
+            <Grid align="center" key={index} data-aos="fade">
               <Grid.Col span={9}>
                 <PostBlock>
                   <PostTitle>{post.title}</PostTitle>

@@ -1,106 +1,30 @@
-import { Button } from "@mantine/core";
+import { SectionSubTitle } from "@/styles/main.styles";
+import { Box, Button } from "@mantine/core";
 import React from "react";
-import styled, { keyframes } from "styled-components";
 
-const Rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-const RotateReverse = keyframes`
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-`;
-
-const MainContainer = styled.section`
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url(@/../banner-texture.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-`;
-
-const Main = styled.div`
-  width: 1000px;
-  height: 1000px;
-  position: relative;
-`;
-
-const BiggerCircle = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border: 2px dotted #33333266;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: ${Rotate} 60s linear infinite;
-`;
-
-const BigCircle = styled.div`
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  border: 2px dotted #33333266;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  animation: ${Rotate} 60s linear infinite;
-`;
-
-const Circle = styled.div`
-  position: absolute;
-  top: 20%;
-  left: 20%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  height: 60%;
-  border: 2px dotted #33333266;
-  border-radius: 50%;
-
-  animation: ${Rotate} 60s linear infinite;
-`;
-
-const IconBlock = styled.div`
-  width: 100px;
-  height: 42px;
-  position: absolute;
-  button {
-    animation: ${RotateReverse} 60s linear infinite;
-  }
-`;
-
-const CenterLogo = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  img {
-    max-width: 200px;
-  }
-`;
+import BannerImg1 from "@/images/banner/banner-dp.png";
+import BannerImg2 from "@/images/banner/banner-dp2.png";
+import BannerImg3 from "@/images/banner/banner-dp3.png";
+import BannerImg4 from "@/images/banner/banner-dp4.png";
+import ArrowIcon from "@/images/banner/arrow.png";
+import Image from "next/image";
+import {
+  BannerIconContainer,
+  BigCircle,
+  BiggerCircle,
+  CenterLogo,
+  Circle,
+  HoverContent,
+  HoverText,
+  IconBlock,
+  Main,
+  MainContainer,
+  MainTitle,
+} from "./HomeBanner.styles";
 
 const getIconPositions = (radius) => [
   {
-    top: `calc(50% - ${radius}px)`,
+    top: `calc(47% - ${radius}px)`,
     left: "50%",
     transform: "translate(-50%, -100%)",
   }, // Top
@@ -124,51 +48,164 @@ const getIconPositions = (radius) => [
 const HomeBanner = () => {
   const biggerCircleIcons = [
     {
-      label: "Text 1",
+      label: (
+        <Button variant="default" radius="xl" className="btn-secondary">
+          Co-working space
+        </Button>
+      ),
     },
     {
-      label: "Text 2",
+      label: (
+        <BannerIconContainer>
+          <div style={{ position: "relative" }}>
+            <Image
+              src={BannerImg3}
+              width={80}
+              height={80}
+              alt="banner-img-icon"
+              className="banner-img-icon"
+            />
+
+            <HoverContent>
+              <HoverText>Raised $20M</HoverText>
+              <Image
+                src={ArrowIcon}
+                width={21}
+                height={54}
+                alt="banner-img-icon"
+              />
+            </HoverContent>
+          </div>
+        </BannerIconContainer>
+      ),
     },
     {
-      label: "Text 3",
+      label: (
+        <BannerIconContainer>
+          <div style={{ position: "relative" }}>
+            <Image
+              src={BannerImg4}
+              width={80}
+              height={80}
+              alt="banner-img-icon"
+              className="banner-img-icon"
+            />
+
+            <HoverContent>
+              <HoverText>Invested $5M</HoverText>
+              <Image
+                src={ArrowIcon}
+                width={21}
+                height={54}
+                alt="banner-img-icon"
+              />
+            </HoverContent>
+          </div>
+        </BannerIconContainer>
+      ),
     },
     {
-      label: "Text 4",
+      label: (
+        <Button variant="default" radius="xl" className="btn-secondary">
+          Co-founder
+        </Button>
+      ),
     },
   ];
 
   const bigCircleIcons = [
     {
-      label: "Text 1",
+      label: (
+        <Button variant="default" radius="xl" className="btn-secondary">
+          Global expansion
+        </Button>
+      ),
     },
     {
-      label: "Text 2",
+      label: (
+        <Button variant="default" radius="xl" className="btn-secondary">
+          Accelerator programs
+        </Button>
+      ),
     },
     {
-      label: "Text 3",
+      label: (
+        <Button variant="default" radius="xl" className="btn-secondary">
+          Learning resources
+        </Button>
+      ),
     },
     {
-      label: "Text 4",
+      label: (
+        <Button variant="default" radius="xl" className="btn-secondary">
+          Mentorship
+        </Button>
+      ),
     },
   ];
 
   const circleIcons = [
     {
-      label: "Text 1",
+      label: (
+        <Button variant="default" radius="xl" className="btn-secondary">
+          Funding
+        </Button>
+      ),
     },
     {
-      label: "Text 2",
+      label: (
+        <BannerIconContainer>
+          <div style={{ position: "relative" }}>
+            <Image
+              src={BannerImg1}
+              width={80}
+              height={80}
+              alt="banner-img-icon"
+              className="banner-img-icon"
+            />
+
+            <HoverContent className="startups">
+              <HoverText>Mentored 16 startups</HoverText>
+              <Image
+                src={ArrowIcon}
+                width={21}
+                height={54}
+                alt="banner-img-icon"
+              />
+            </HoverContent>
+          </div>
+        </BannerIconContainer>
+      ),
     },
     {
-      label: "Text 3",
-    },
-    {
-      label: "Text 4",
+      label: (
+        <BannerIconContainer>
+          <div style={{ position: "relative" }}>
+            <Image
+              src={BannerImg2}
+              width={80}
+              height={80}
+              alt="banner-img-icon"
+              className="banner-img-icon"
+            />
+
+            <HoverContent>
+              <HoverText>Raised $14M</HoverText>
+              <Image
+                src={ArrowIcon}
+                width={21}
+                height={54}
+                alt="banner-img-icon"
+              />
+            </HoverContent>
+          </div>
+        </BannerIconContainer>
+      ),
     },
   ];
 
   const biggerCirclePositions = getIconPositions(470);
-  const bigCirclePositions = getIconPositions(360);
+  const bigCirclePositions = getIconPositions(350);
   const smallCirclePositions = getIconPositions(260);
 
   return (
@@ -176,34 +213,76 @@ const HomeBanner = () => {
       <Main>
         <BiggerCircle>
           {biggerCircleIcons.map((item, index) => (
-            <IconBlock key={index} style={biggerCirclePositions[index]}>
-              <Button variant="default" radius="xl" className="btn-secondary">
+            <IconBlock
+              key={index}
+              style={biggerCirclePositions[index]}
+              className="icon-block-outer"
+            >
+              <Box
+                data-aos="zoom-in"
+                data-aos-delay={800}
+                data-aos-once={true}
+                data-aos-offset={-100}
+              >
                 {item.label}
-              </Button>
+              </Box>
             </IconBlock>
           ))}
         </BiggerCircle>
         <BigCircle>
           {bigCircleIcons.map((item, index) => (
-            <IconBlock key={index} style={bigCirclePositions[index]}>
-              <Button variant="default" radius="xl" className="btn-secondary">
+            <IconBlock
+              key={index}
+              style={bigCirclePositions[index]}
+              className="icon-block-middle"
+            >
+              <Box
+                data-aos="zoom-in"
+                data-aos-delay={600}
+                data-aos-once={true}
+                data-aos-offset={-100}
+              >
                 {item.label}
-              </Button>
+              </Box>
             </IconBlock>
           ))}
         </BigCircle>
         <Circle>
           {circleIcons.map((item, index) => (
-            <IconBlock key={index} style={smallCirclePositions[index]}>
-              <Button variant="default" radius="xl" className="btn-secondary">
+            <IconBlock
+              key={index}
+              style={smallCirclePositions[index]}
+              className="icon-block-inner"
+            >
+              <Box
+                data-aos="zoom-in"
+                data-aos-delay={400}
+                data-aos-once={true}
+                data-aos-offset={-100}
+              >
                 {item.label}
-              </Button>
+              </Box>
             </IconBlock>
           ))}
         </Circle>
 
         <CenterLogo>
-          <h1>Hello</h1>
+          <MainTitle data-aos="fade">
+            Your Multi-Stage, Fund-Led Startup Accelerator
+          </MainTitle>
+          <SectionSubTitle data-aos="fade" data-aos-offset={-100}>
+            Accelerating growth for 2000+ entrepreneurs across the globe
+          </SectionSubTitle>
+          <Box data-aos="fade" data-aos-delay={200} data-aos-offset={-100}>
+            <Button
+              variant="filled"
+              radius="xl"
+              className="btn-primary"
+              size="md"
+            >
+              Accelerate your startup
+            </Button>
+          </Box>
         </CenterLogo>
       </Main>
     </MainContainer>

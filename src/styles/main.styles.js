@@ -14,6 +14,9 @@ export const Section = styled.section`
         `
       : null}
   padding: 60px 0;
+  @media (max-width: 768px) {
+    padding: 30px 0;
+  }
 `;
 
 export const SectionTitle = styled.h1`
@@ -38,6 +41,10 @@ export const SectionTitle = styled.h1`
     height: 16px;
     margin-top: -22px;
   }
+  @media (max-width: 768px) {
+    font-size: 28px;
+    text-align: left;
+  }
 `;
 
 export const SectionSubTitle = styled.h2`
@@ -47,4 +54,8 @@ export const SectionSubTitle = styled.h2`
   color: #282828;
   max-width: 860px;
   margin: 12px auto auto auto;
+  @media (max-width: 768px) {
+    font-size: 16px;
+    text-align: left;
+  }
 `;

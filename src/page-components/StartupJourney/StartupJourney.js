@@ -46,21 +46,21 @@ const data = [
 const StartupJourney = () => {
   return (
     <Box component="div" className="container">
-      <SectionTitle>
+      <SectionTitle data-aos="fade">
         How We Fuel Your
         <Box component="span" className="highlight">
           Startup Journey
         </Box>
       </SectionTitle>
 
-      <SectionSubTitle>
+      <SectionSubTitle data-aos="fade">
         Hands-on mentorship, access to expert networks, and resources designed
         to drive growth and success for startups across various sectors
       </SectionSubTitle>
       <StartupJourneyContainer>
         <StartupJourneyCardFlex>
           {data.map((item, index) => (
-            <Box component="div" key={index}>
+            <Box component="div" key={index} data-aos="fade">
               <HoveringImageblock type={item.type}>
                 <Image
                   src={item.image}

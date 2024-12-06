@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
-export const UserProfileCardContainer = styled.div`
-  margin: 0;
-`;
-
 export const UPTitle = styled.h2`
   font-size: 20px;
   font-weight: 600;
   color: #0f0f0f;
+`;
+
+export const UserProfileCardContainer = styled.div`
+  cursor: pointer;
+  &:hover {
+    ${UPTitle} {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export const UPDesignation = styled.p`

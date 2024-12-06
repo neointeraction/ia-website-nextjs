@@ -76,3 +76,9 @@ a {
   border-bottom: 1px solid #b7b7b7;
   width: 500px;
 }
+
+.btn-banner {
+  height: 100px;
+  width: 100px;
+  pointer-events: none;
+}

@@ -50,12 +50,14 @@ const StrategicFocusSection = ({ title, subtitle }) => {
   ];
   return (
     <Box component="div" className="container">
-      <SectionTitle>{title}</SectionTitle>
-      {subtitle && <SectionSubTitle>{subtitle}</SectionSubTitle>}
+      <SectionTitle data-aos="fade">{title}</SectionTitle>
+      {subtitle && (
+        <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
+      )}
       <StrategicFocusContainer>
         <Stack align="center" justify="center" gap="0px">
           {data.map((item, index) => (
-            <Box key={index}>
+            <Box key={index} data-aos="fade">
               <HoverCard
                 width={234}
                 position={item.position}

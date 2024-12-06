@@ -8,7 +8,7 @@ const Count = ({ countValue, label, suffix, prefix }) => {
   return (
     <Box component="div">
       <CountContainer>
-        <Center>
+        <Center className="center-div">
           <CountUp
             end={countValue}
             prefix={prefix}

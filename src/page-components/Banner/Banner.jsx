@@ -15,8 +15,10 @@ const Banner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
           <Grid.Col span={7}>
             <Stack align="flex-start" gap="lg">
               <div>
-                <BannerTitle>{title}</BannerTitle>
-                <BannerDisplayText>{displayTitile}</BannerDisplayText>
+                <BannerTitle data-aos="fade">{title}</BannerTitle>
+                <BannerDisplayText data-aos="fade">
+                  {displayTitile}
+                </BannerDisplayText>
               </div>
 
               <Button
@@ -24,6 +26,7 @@ const Banner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
                 radius="xl"
                 className="btn-primary"
                 onClick={onClick}
+                data-aos="fade"
               >
                 {btnText}
               </Button>
@@ -31,6 +34,7 @@ const Banner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
           </Grid.Col>
           <Grid.Col span={5}>
             <Image
+              data-aos="fade"
               src={bannerImg}
               alt="banner-img"
               style={{ width: "100%", height: "auto" }}

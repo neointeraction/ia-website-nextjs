@@ -34,7 +34,7 @@ import Finseed from "@/images/SVGIcons/Finseed";
 import Pulse from "@/images/SVGIcons/Pulse";
 import SuccessStories from "@/page-components/SuccessStories";
 import HomeBanner from "@/page-components/HomeBanner";
-// import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
+import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 
 const home = () => {
   return (
@@ -46,9 +46,9 @@ const home = () => {
           <meta name="keywords" content="India Accelerator" />
         </Head>
       </>
-      {/* <>
+      <>
         <HomeBanner />
-      </> */}
+      </>
       <Section $hasTexture>
         <ClientMarquee
           title={
@@ -85,9 +85,19 @@ const home = () => {
           data={homeMilestoneData}
         />
       </Section>
-      {/* <Section>
-        <WhyFoundersChoseIA />
-      </Section> */}
+      <Section>
+        <WhyFoundersChoseIA
+          title={
+            <>
+              Why{" "}
+              <Box component="span" className="highlight">
+                400+ founders
+              </Box>{" "}
+              chose IA
+            </>
+          }
+        />
+      </Section>
       <Section>
         <MentorsSection
           title={

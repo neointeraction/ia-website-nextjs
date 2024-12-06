@@ -17,7 +17,7 @@ const TextSliderData = [
 
 const TextSlider = () => {
   return (
-    <TextSliderContainer>
+    <TextSliderContainer data-aos="fade">
       <Marquee pauseOnHover>
         {TextSliderData.map((item, index) => (
           <Box component="div" key={index}>

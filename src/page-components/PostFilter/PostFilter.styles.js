@@ -15,6 +15,10 @@ export const PostTitle = styled.h1`
   line-height: 48px;
   color: #0f0f0f;
   margin-bottom: 20px;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const PostBody = styled.p`

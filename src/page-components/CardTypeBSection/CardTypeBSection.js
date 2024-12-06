@@ -7,13 +7,15 @@ import CardTypeB from "@/components/CardTypeB";
 const CardTypeBSection = ({ title, subtitle, data }) => {
   return (
     <Box component="div" className="container">
-      <SectionTitle>{title}</SectionTitle>
-      {subtitle && <SectionSubTitle>{subtitle}</SectionSubTitle>}
+      <SectionTitle data-aos="fade">{title}</SectionTitle>
+      {subtitle && (
+        <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
+      )}
       <CardContainerBlock>
         <Grid gutter={60}>
           {data.map((item, index) => (
             <Grid.Col span={4} key={index}>
-              <Box component="div">
+              <Box component="div" data-aos="fade">
                 <Center>
                   <CardTypeB
                     icon={item.icon}

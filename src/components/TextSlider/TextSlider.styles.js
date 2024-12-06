@@ -11,6 +11,6 @@ export const TextSliderContainer = styled.div`
 
 export const TextSliderTitle = styled.h2`
   font-size: 16px;
-  font-size: 400;
+  font-weight: 400;
   color: #282828;
 `;
