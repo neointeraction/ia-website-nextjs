@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Grid, Group, UnstyledButton } from "@mantine/core";
+import { Box, Grid, UnstyledButton } from "@mantine/core";
 import { SubnavContainer } from "./SubNav.styles";
 import { List, ListItem } from "../MenuList/MenuList.styles";
 import Image from "next/image";

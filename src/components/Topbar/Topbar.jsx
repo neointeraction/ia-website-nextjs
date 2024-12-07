@@ -37,6 +37,7 @@ import { Header, HeaderFlex, HeaderFlexItem } from "./Topbar.styles";
 import { useState } from "react";
 import { whatWeDoData } from "./data/menuData";
 import SubNav from "./components/SubNav";
+import React from "react";
 
 const mockdata = [
   {
@@ -162,7 +163,9 @@ export default function Topbar() {
                               );
 
                             return (
-                              <>
+                              <React.Fragment
+                                key={item.title || `item-${index}`}
+                              >
                                 <Grid.Col span={isFiltered ? 3 : 3} key={index}>
                                   <MenuList
                                     title={item.title}
@@ -178,7 +181,7 @@ export default function Topbar() {
                                     <SubNav data={subMenuData} />
                                   </Grid.Col>
                                 )}
-                              </>
+                              </React.Fragment>
                             );
                           })}
                       </Grid>
