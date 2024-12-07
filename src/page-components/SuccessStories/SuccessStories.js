@@ -10,6 +10,7 @@ import {
   CarouselContainer,
   StoryText,
   StoryUser,
+  SuccessStoriesContainer,
 } from "./SuccessStories.styles";
 import { useState } from "react";
 
@@ -31,101 +32,103 @@ const SuccessStories = ({ data }) => {
 
   return (
     <Box component="div" className="container">
-      <SectionTitle $leftAlign data-aos="fade">
-        <Box component="span" className="highlight">
-          Success Stories
-        </Box>{" "}
-        from Our Community
-      </SectionTitle>
-      <Group
-        data-aos="fade"
-        justify="flex-start"
-        mt={18}
-        mb={-100}
-        style={{ zIndex: 9999, position: "relative" }}
-      >
-        <Button
-          onClick={() => handleCategoryChange("All")}
-          variant={selectedCategory === "All" ? "filled" : "default"}
-          radius="xl"
-          className={
-            selectedCategory === "All" ? "btn-primary" : "btn-secondary"
-          }
+      <SuccessStoriesContainer>
+        <SectionTitle $leftAlign data-aos="fade">
+          <Box component="span" className="highlight">
+            Success Stories
+          </Box>{" "}
+          from Our Community
+        </SectionTitle>
+        <Group
+          data-aos="fade"
+          justify="flex-start"
+          className="ss-group"
+          mt={18}
+          style={{ zIndex: 9999, position: "relative" }}
         >
-          All
-        </Button>
-        <Button
-          onClick={() => handleCategoryChange("Founders")}
-          variant={selectedCategory === "Founders" ? "filled" : "default"}
-          radius="xl"
-          className={
-            selectedCategory === "Founders" ? "btn-primary" : "btn-secondary"
-          }
-        >
-          Founders
-        </Button>
-        <Button
-          onClick={() => handleCategoryChange("Investors")}
-          variant={selectedCategory === "Investors" ? "filled" : "default"}
-          radius="xl"
-          className={
-            selectedCategory === "Investors" ? "btn-primary" : "btn-secondary"
-          }
-        >
-          Investors
-        </Button>
-        <Button
-          onClick={() => handleCategoryChange("Partners")}
-          variant={selectedCategory === "Partners" ? "filled" : "default"}
-          radius="xl"
-          className={
-            selectedCategory === "Partners" ? "btn-primary" : "btn-secondary"
-          }
-        >
-          Partners
-        </Button>
-        <Button
-          onClick={() => handleCategoryChange("Mentors")}
-          variant={selectedCategory === "Mentors" ? "filled" : "default"}
-          radius="xl"
-          className={
-            selectedCategory === "Mentors" ? "btn-primary" : "btn-secondary"
-          }
-        >
-          Mentors
-        </Button>
-      </Group>
-      <Box>
-        <CarouselContainer data-aos="fade">
-          <Carousel
-            withControls={false}
-            withIndicators
-            plugins={[autoplay.current, fadeAnimation.current]}
-            onMouseEnter={autoplay.current.stop}
-            onMouseLeave={autoplay.current.play}
+          <Button
+            onClick={() => handleCategoryChange("All")}
+            variant={selectedCategory === "All" ? "filled" : "default"}
+            radius="xl"
+            className={
+              selectedCategory === "All" ? "btn-primary" : "btn-secondary"
+            }
           >
-            {storyPosts.map((item, index) => (
-              <Carousel.Slide key={index}>
-                <Grid align="flex-end">
-                  <Grid.Col span={9}>
-                    <Stack align="stretch" justify="center" gap="md">
-                      <StoryText>{item.story}</StoryText>
-                      <StoryUser>{item.name}</StoryUser>
-                    </Stack>
-                  </Grid.Col>
-                  <Grid.Col span={3}>
-                    <Image
-                      src={item.img}
-                      style={{ width: "100%", height: "100%" }}
-                      alt="ss-img"
-                    />
-                  </Grid.Col>
-                </Grid>
-              </Carousel.Slide>
-            ))}
-          </Carousel>
-        </CarouselContainer>
-      </Box>
+            All
+          </Button>
+          <Button
+            onClick={() => handleCategoryChange("Founders")}
+            variant={selectedCategory === "Founders" ? "filled" : "default"}
+            radius="xl"
+            className={
+              selectedCategory === "Founders" ? "btn-primary" : "btn-secondary"
+            }
+          >
+            Founders
+          </Button>
+          <Button
+            onClick={() => handleCategoryChange("Investors")}
+            variant={selectedCategory === "Investors" ? "filled" : "default"}
+            radius="xl"
+            className={
+              selectedCategory === "Investors" ? "btn-primary" : "btn-secondary"
+            }
+          >
+            Investors
+          </Button>
+          <Button
+            onClick={() => handleCategoryChange("Partners")}
+            variant={selectedCategory === "Partners" ? "filled" : "default"}
+            radius="xl"
+            className={
+              selectedCategory === "Partners" ? "btn-primary" : "btn-secondary"
+            }
+          >
+            Partners
+          </Button>
+          <Button
+            onClick={() => handleCategoryChange("Mentors")}
+            variant={selectedCategory === "Mentors" ? "filled" : "default"}
+            radius="xl"
+            className={
+              selectedCategory === "Mentors" ? "btn-primary" : "btn-secondary"
+            }
+          >
+            Mentors
+          </Button>
+        </Group>
+        <Box>
+          <CarouselContainer data-aos="fade">
+            <Carousel
+              withControls={false}
+              withIndicators
+              plugins={[autoplay.current, fadeAnimation.current]}
+              onMouseEnter={autoplay.current.stop}
+              onMouseLeave={autoplay.current.play}
+            >
+              {storyPosts.map((item, index) => (
+                <Carousel.Slide key={index}>
+                  <Grid align="flex-end">
+                    <Grid.Col span={{ base: 12, md: 6, lg: 9 }}>
+                      <Stack align="stretch" justify="center" gap="md">
+                        <StoryText>{item.story}</StoryText>
+                        <StoryUser>{item.name}</StoryUser>
+                      </Stack>
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
+                      <Image
+                        src={item.img}
+                        style={{ width: "100%", height: "100%" }}
+                        alt="ss-img"
+                      />
+                    </Grid.Col>
+                  </Grid>
+                </Carousel.Slide>
+              ))}
+            </Carousel>
+          </CarouselContainer>
+        </Box>
+      </SuccessStoriesContainer>
     </Box>
   );
 };

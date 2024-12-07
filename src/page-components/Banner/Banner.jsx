@@ -12,7 +12,7 @@ const Banner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
     <div className="container">
       <BannerContainer>
         <Grid align="center">
-          <Grid.Col span={7}>
+          <Grid.Col span={{ base: 12, md: 7, lg: 7 }}>
             <Stack align="flex-start" gap="lg">
               <div>
                 <BannerTitle data-aos="fade">{title}</BannerTitle>
@@ -32,7 +32,7 @@ const Banner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
               </Button>
             </Stack>
           </Grid.Col>
-          <Grid.Col span={5}>
+          <Grid.Col span={{ base: 12, md: 5, lg: 5 }}>
             <Image
               data-aos="fade"
               src={bannerImg}

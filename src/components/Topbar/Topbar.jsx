@@ -34,6 +34,9 @@ import Logo from "@/images/logo.png";
 
 import MenuList from "./components/MenuList";
 import { Header, HeaderFlex, HeaderFlexItem } from "./Topbar.styles";
+import { useState } from "react";
+import { whatWeDoData } from "./data/menuData";
+import SubNav from "./components/SubNav";
 
 const mockdata = [
   {
@@ -74,6 +77,9 @@ export default function Topbar() {
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
 
+  const [subMenuId, setSubMenuId] = useState("");
+  const [subMenuData, setSubMenuData] = useState([]);
+
   const links = mockdata.map((item) => (
     <UnstyledButton className={"subLink"} key={item.title}>
       <Group wrap="nowrap" align="flex-start">
@@ -92,6 +98,19 @@ export default function Topbar() {
     </UnstyledButton>
   ));
 
+  const getSubMenuValue = (id, subData) => {
+    setSubMenuId(id);
+    setSubMenuData(subData);
+  };
+
+  const resetSubNavValue = () => {
+    setSubMenuId("");
+    setSubMenuData([]);
+  };
+
+  console.log(subMenuId, "subMenuId");
+  console.log(subMenuData, "subMenuId");
+
   return (
     <Box>
       <Header>
@@ -102,11 +121,20 @@ export default function Topbar() {
             </HeaderFlexItem>
             <HeaderFlexItem $grow>
               <Group h="100%" gap={0} visibleFrom="sm">
-                <Popover width={"100%"} position="bottom" withArrow shadow="md">
+                <Popover
+                  width={"100%"}
+                  position="bottom"
+                  withArrow
+                  shadow="md"
+                  onChange={() => resetSubNavValue()}
+                >
                   <Popover.Target>
-                    <a href="#" className={"link"}>
+                    <UnstyledButton
+                      className={"link"}
+                      onClick={() => console.log("hello")}
+                    >
                       What we do
-                    </a>
+                    </UnstyledButton>
                   </Popover.Target>
                   <Popover.Dropdown
                     style={{
@@ -116,102 +144,45 @@ export default function Topbar() {
                       padding: "40px 0",
                     }}
                   >
-                    <div className="container">
+                    <Box className="container">
                       <Grid>
-                        <Grid.Col span={3}>
-                          <MenuList
-                            title="Accelerate"
-                            listItems={[
-                              {
-                                text: "Our theses",
-                                link: "https://example.com/our-theses",
-                              },
-                              {
-                                text: "Accelerator programs",
-                                link: "https://example.com/accelerator-programs",
-                              },
-                              {
-                                text: "Startup offerings",
-                                link: "https://example.com/startup-offerings",
-                              },
-                              {
-                                text: "Global expansion",
-                                link: "https://example.com/global-expansion",
-                              },
-                              {
-                                text: "Venture studio",
-                                link: "https://example.com/venture-studio",
-                              },
-                            ]}
-                            borderColor="#EC5427"
-                          />
-                        </Grid.Col>
-                        <Grid.Col span={3}>
-                          <MenuList
-                            title="We fund you"
-                            listItems={[
-                              {
-                                text: "IAngels",
-                                link: "https://example.com/iangels",
-                              },
-                              {
-                                text: "Finvolve",
-                                link: "https://example.com/finvolve",
-                              },
-                              {
-                                text: "Funding schemes",
-                                link: "https://example.com/funding-schemes",
-                              },
-                              {
-                                text: "Apply as an investor",
-                                link: "https://example.com/apply-investor",
-                              },
-                            ]}
-                            borderColor="#00A14C"
-                          />
-                        </Grid.Col>
-                        <Grid.Col span={3}>
-                          <MenuList
-                            title="We mentor you"
-                            listItems={[
-                              {
-                                text: "Apply as a mentor",
-                                link: "https://example.com/iangels",
-                              },
-                            ]}
-                            borderColor="#00AAE7"
-                          />
-                        </Grid.Col>
-                        <Grid.Col span={3}>
-                          <MenuList
-                            title="Partnership programs"
-                            listItems={[
-                              {
-                                text: "Government partnerships",
-                                link: "https://example.com/our-theses",
-                              },
-                              {
-                                text: "Corporate partnerships",
-                                link: "https://example.com/accelerator-programs",
-                              },
-                              {
-                                text: "University partnerships",
-                                link: "https://example.com/startup-offerings",
-                              },
-                              {
-                                text: "VCs",
-                                link: "https://example.com/global-expansion",
-                              },
-                              {
-                                text: "Apply as a partner",
-                                link: "https://example.com/venture-studio",
-                              },
-                            ]}
-                            borderColor="#F7C822"
-                          />
-                        </Grid.Col>
+                        {whatWeDoData
+                          .filter(
+                            (item) =>
+                              subMenuId === "" ||
+                              item.listItems.some(
+                                (listItem) => listItem.text === subMenuId
+                              )
+                          )
+                          .map((item, index) => {
+                            const isFiltered =
+                              subMenuId !== "" &&
+                              item.listItems.some(
+                                (listItem) => listItem.text === subMenuId
+                              );
+
+                            return (
+                              <>
+                                <Grid.Col span={isFiltered ? 3 : 3} key={index}>
+                                  <MenuList
+                                    title={item.title}
+                                    path={item.path}
+                                    getValue={getSubMenuValue}
+                                    listItems={item.listItems}
+                                    borderColor={item.borderColor}
+                                    subMenuId={subMenuId}
+                                  />
+                                </Grid.Col>
+                                {isFiltered && (
+                                  <Grid.Col span={9} key={`subnav-${index}`}>
+                                    <SubNav data={subMenuData} />
+                                  </Grid.Col>
+                                )}
+                              </>
+                            );
+                          })}
                       </Grid>
-                    </div>
+                    </Box>
                   </Popover.Dropdown>
                 </Popover>
 

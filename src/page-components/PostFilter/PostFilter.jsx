@@ -84,14 +84,14 @@ function PostFilter({ postsData, home }) {
         <Stack gap="lg">
           {filteredPosts.map((post, index) => (
             <Grid align="center" key={index} data-aos="fade">
-              <Grid.Col span={9}>
+              <Grid.Col span={{ base: 12, md: 9, lg: 9 }}>
                 <PostBlock>
                   <PostTitle>{post.title}</PostTitle>
                   <PostBody>{post.content}</PostBody>
                   <PostDate>{post.date}</PostDate>
                 </PostBlock>
               </Grid.Col>
-              <Grid.Col span={3}>
+              <Grid.Col span={{ base: 12, md: 3, lg: 3 }}>
                 <Image
                   src={post.blogImg}
                   style={{ width: "100%", height: "auto" }}

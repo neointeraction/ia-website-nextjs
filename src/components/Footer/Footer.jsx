@@ -107,7 +107,7 @@ const Footer = () => {
     ));
 
     return (
-      <Grid.Col span={3} key={group.title}>
+      <Grid.Col span={{ base: 6, md: 3, lg: 3 }} key={group.title}>
         <FooterTitle>{group.title}</FooterTitle>
         {links}
       </Grid.Col>
@@ -127,7 +127,7 @@ const Footer = () => {
     ));
 
     return (
-      <Grid.Col span={3} key={group.title}>
+      <Grid.Col span={{ base: 6, md: 3, lg: 3 }} key={group.title}>
         <FooterTitle $sm>{group.title}</FooterTitle>
         {links}
       </Grid.Col>
@@ -139,7 +139,7 @@ const Footer = () => {
       <Box component="div" className="container">
         <LogoSocialBlock>
           <Grid align="flex-end">
-            <Grid.Col span={3}>
+            <Grid.Col span={{ base: 12, md: 3, lg: 3 }}>
               <Box component="div">
                 <Image
                   src={FooterLogo}
@@ -152,7 +152,7 @@ const Footer = () => {
             </Grid.Col>
             <Grid.Col span={3}></Grid.Col>
             <Grid.Col span={3}></Grid.Col>
-            <Grid.Col span={3}>
+            <Grid.Col span={{ base: 12, md: 3, lg: 3 }}>
               <Box component="div">
                 <Group>
                   <UnstyledButton>

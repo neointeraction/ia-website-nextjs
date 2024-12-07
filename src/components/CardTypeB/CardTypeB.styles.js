@@ -4,12 +4,18 @@ export const CardTypeBTitle = styled.h2`
   font-size: 28px;
   font-weight: 400;
   color: #0f0f0f;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const CardTypeBBodyText = styled.p`
   font-size: 16px;
   font-weight: 400;
   color: #282828;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const CardTypeBContainer = styled.div`
@@ -67,5 +73,9 @@ export const CardTypeBContainer = styled.div`
       stroke: #00a14c;
       transition: 0.3s all ease-in-out;
     }
+  }
+  @media (max-width: 768px) {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b7b7b7;
   }
 `;

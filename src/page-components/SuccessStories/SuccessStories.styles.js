@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+export const SuccessStoriesContainer = styled.div`
+  .ss-group {
+    margin-bottom: -100px;
+  }
+  @media (max-width: 768px) {
+    .ss-group {
+      margin-bottom: 0px;
+    }
+  }
+`;
+
 export const CarouselContainer = styled.div`
   background-image: url(@/../quote-bg.png);
   background-repeat: no-repeat;
@@ -17,6 +28,13 @@ export const CarouselContainer = styled.div`
       }
     }
   }
+  @media (max-width: 768px) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .mantine-Carousel-indicators {
+      bottom: -30px;
+    }
+  }
 `;
 
 export const StoryText = styled.p`
@@ -25,6 +43,12 @@ export const StoryText = styled.p`
   line-height: 36px;
   color: #282828;
   width: 650px;
+  @media (max-width: 768px) {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 100%;
+  }
 `;
 
 export const StoryUser = styled.h2`
