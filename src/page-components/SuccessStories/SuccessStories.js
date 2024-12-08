@@ -14,7 +14,7 @@ import {
 } from "./SuccessStories.styles";
 import { useState } from "react";
 
-const SuccessStories = ({ data }) => {
+const SuccessStories = ({ title, data, hideFilters }) => {
   const autoplay = useRef(Autoplay());
   const fadeAnimation = useRef(Fade());
 
@@ -34,70 +34,75 @@ const SuccessStories = ({ data }) => {
     <Box component="div" className="container">
       <SuccessStoriesContainer>
         <SectionTitle $leftAlign data-aos="fade">
-          <Box component="span" className="highlight">
-            Success Stories
-          </Box>{" "}
-          from Our Community
+          {title}
         </SectionTitle>
-        <Group
-          data-aos="fade"
-          justify="flex-start"
-          className="ss-group"
-          mt={18}
-          style={{ zIndex: 9999, position: "relative" }}
-        >
-          <Button
-            onClick={() => handleCategoryChange("All")}
-            variant={selectedCategory === "All" ? "filled" : "default"}
-            radius="xl"
-            className={
-              selectedCategory === "All" ? "btn-primary" : "btn-secondary"
-            }
+        {!hideFilters && (
+          <Group
+            data-aos="fade"
+            justify="flex-start"
+            mt={18}
+            style={{ zIndex: 9999, position: "relative" }}
           >
-            All
-          </Button>
-          <Button
-            onClick={() => handleCategoryChange("Founders")}
-            variant={selectedCategory === "Founders" ? "filled" : "default"}
-            radius="xl"
-            className={
-              selectedCategory === "Founders" ? "btn-primary" : "btn-secondary"
-            }
-          >
-            Founders
-          </Button>
-          <Button
-            onClick={() => handleCategoryChange("Investors")}
-            variant={selectedCategory === "Investors" ? "filled" : "default"}
-            radius="xl"
-            className={
-              selectedCategory === "Investors" ? "btn-primary" : "btn-secondary"
-            }
-          >
-            Investors
-          </Button>
-          <Button
-            onClick={() => handleCategoryChange("Partners")}
-            variant={selectedCategory === "Partners" ? "filled" : "default"}
-            radius="xl"
-            className={
-              selectedCategory === "Partners" ? "btn-primary" : "btn-secondary"
-            }
-          >
-            Partners
-          </Button>
-          <Button
-            onClick={() => handleCategoryChange("Mentors")}
-            variant={selectedCategory === "Mentors" ? "filled" : "default"}
-            radius="xl"
-            className={
-              selectedCategory === "Mentors" ? "btn-primary" : "btn-secondary"
-            }
-          >
-            Mentors
-          </Button>
-        </Group>
-        <Box>
+            <Button
+              onClick={() => handleCategoryChange("All")}
+              variant={selectedCategory === "All" ? "filled" : "default"}
+              radius="xl"
+              className={
+                selectedCategory === "All" ? "btn-primary" : "btn-secondary"
+              }
+            >
+              All
+            </Button>
+            <Button
+              onClick={() => handleCategoryChange("Founders")}
+              variant={selectedCategory === "Founders" ? "filled" : "default"}
+              radius="xl"
+              className={
+                selectedCategory === "Founders"
+                  ? "btn-primary"
+                  : "btn-secondary"
+              }
+            >
+              Founders
+            </Button>
+            <Button
+              onClick={() => handleCategoryChange("Investors")}
+              variant={selectedCategory === "Investors" ? "filled" : "default"}
+              radius="xl"
+              className={
+                selectedCategory === "Investors"
+                  ? "btn-primary"
+                  : "btn-secondary"
+              }
+            >
+              Investors
+            </Button>
+            <Button
+              onClick={() => handleCategoryChange("Partners")}
+              variant={selectedCategory === "Partners" ? "filled" : "default"}
+              radius="xl"
+              className={
+                selectedCategory === "Partners"
+                  ? "btn-primary"
+                  : "btn-secondary"
+              }
+            >
+              Partners
+            </Button>
+            <Button
+              onClick={() => handleCategoryChange("Mentors")}
+              variant={selectedCategory === "Mentors" ? "filled" : "default"}
+              radius="xl"
+              className={
+                selectedCategory === "Mentors" ? "btn-primary" : "btn-secondary"
+              }
+            >
+              Mentors
+            </Button>
+          </Group>
+        )}
+
+        <Box className="ss-group">
           <CarouselContainer data-aos="fade">
             <Carousel
               withControls={false}

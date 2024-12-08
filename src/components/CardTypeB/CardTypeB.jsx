@@ -1,5 +1,6 @@
-import { Box, Group, Stack } from "@mantine/core";
+import { Box, Group, Stack, UnstyledButton } from "@mantine/core";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import Arrow from "@/images/content-arrow.svg";
 
@@ -9,14 +10,17 @@ import {
   CardTypeBTitle,
 } from "./CardTypeB.styles";
 
-const CardTypeB = ({ icon, title, bodyText }) => {
+const CardTypeB = ({ icon, title, bodyText, hasTexturedCard, path }) => {
+  const router = useRouter();
   return (
     <Box component="div">
-      <CardTypeBContainer>
+      <CardTypeBContainer $hasTexturedCard={hasTexturedCard}>
         <Stack gap="xs">
           {icon && icon}
           <Group justify="flex-start" gap={16}>
-            <CardTypeBTitle>{title}</CardTypeBTitle>
+            <UnstyledButton onClick={() => router.push(path)}>
+              <CardTypeBTitle>{title}</CardTypeBTitle>
+            </UnstyledButton>
             <Image src={Arrow} alt="Arrow" width={24} height={24} />
           </Group>
           {bodyText && <CardTypeBBodyText>{bodyText}</CardTypeBBodyText>}

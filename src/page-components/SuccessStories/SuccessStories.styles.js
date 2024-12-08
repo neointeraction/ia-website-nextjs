@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const SuccessStoriesContainer = styled.div`
   .ss-group {
-    margin-bottom: -100px;
+    margin-top: -80px;
   }
   @media (max-width: 768px) {
     .ss-group {
-      margin-bottom: 0px;
+      margin-top: 0px;
     }
   }
 `;

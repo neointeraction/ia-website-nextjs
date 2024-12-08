@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const CardTypeBTitle = styled.h2`
   font-size: 28px;
@@ -20,6 +20,7 @@ export const CardTypeBBodyText = styled.p`
 
 export const CardTypeBContainer = styled.div`
   cursor: pointer;
+
   .svg-icon-yellow {
     fill: transparent;
     transition: 0.3s all ease-in-out;
@@ -74,6 +75,15 @@ export const CardTypeBContainer = styled.div`
       transition: 0.3s all ease-in-out;
     }
   }
+  ${(props) =>
+    props.$hasTexturedCard &&
+    css`
+      background-image: url(@/../card-texture.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 30px 30px;
+      min-height: 262px;
+    `}
   @media (max-width: 768px) {
     padding-bottom: 10px;
     border-bottom: 1px solid #b7b7b7;

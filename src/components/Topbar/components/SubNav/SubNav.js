@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Grid, UnstyledButton } from "@mantine/core";
+import { Box, Grid, Group, UnstyledButton } from "@mantine/core";
 import { SubnavContainer } from "./SubNav.styles";
 import { List, ListItem } from "../MenuList/MenuList.styles";
 import Image from "next/image";
@@ -10,39 +10,35 @@ const SubNav = ({ data }) => {
   return (
     <Box component="div">
       <SubnavContainer>
-        <Grid>
-          {data.map((item, index) => {
-            return (
+        <Group align="flex-start" justify="space-between">
+          <Grid w={"50%"}>
+            {data.map((item, index) => (
               <Grid.Col span={12} key={index} p={7}>
-                <Box>
-                  <List>
-                    <ListItem $noMb>
-                      <UnstyledButton
-                        component="a"
-                        onMouseEnter={() => setHoveredItem(index)}
-                        onMouseLeave={() => setHoveredItem(null)}
-                        className="sub-links"
-                      >
-                        {item.text}
-                      </UnstyledButton>
-                    </ListItem>
-                  </List>
-                  <Box>
-                    {hoveredItem === index && item.img && (
-                      <Box style={{ width: "200px" }}>
-                        <Image
-                          src={item.img}
-                          style={{ width: "100%", height: "100%" }}
-                          alt="header-img"
-                        />
-                      </Box>
-                    )}
-                  </Box>
-                </Box>
+                <List>
+                  <ListItem $noMb>
+                    <UnstyledButton
+                      component="a"
+                      onMouseEnter={() => setHoveredItem(index)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                      className="sub-links"
+                    >
+                      {item.text}
+                    </UnstyledButton>
+                  </ListItem>
+                </List>
               </Grid.Col>
-            );
-          })}
-        </Grid>
+            ))}
+          </Grid>
+          {hoveredItem !== null && data[hoveredItem]?.img && (
+            <Box style={{ width: "200px", marginLeft: "16px" }}>
+              <Image
+                src={data[hoveredItem]?.img}
+                style={{ width: "100%", height: "100%" }}
+                alt="header-img"
+              />
+            </Box>
+          )}
+        </Group>
       </SubnavContainer>
     </Box>
   );

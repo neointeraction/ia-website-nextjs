@@ -1,4 +1,5 @@
 import RUMS from "@/images/header/rums.png";
+import AP from "@/images/header/ap.png";
 
 export const whatWeDoData = [
   {
@@ -13,7 +14,7 @@ export const whatWeDoData = [
             path: "/",
             img: RUMS,
           },
-          { text: "Consumer", path: "/", img: RUMS },
+          { text: "Consumer", path: "/", img: AP },
           {
             text: "Gaming, Media & Entertainment (GaME)",
             path: "/",
@@ -43,7 +44,15 @@ export const whatWeDoData = [
           { text: "Perks & benefits", path: "/", img: RUMS },
         ],
       },
-      { text: "Global expansion" },
+      {
+        text: "Global expansion",
+        listSubData: [
+          { text: "IAccel GBI", path: "/", img: RUMS },
+          { text: "SVA US", path: "/", img: RUMS },
+          { text: "Sri Lanka", path: "/", img: RUMS },
+          { text: "Mauritius", path: "/", img: RUMS },
+        ],
+      },
       { text: "Venture studio" },
     ],
     borderColor: "#EC5427",

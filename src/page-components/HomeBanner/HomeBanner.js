@@ -277,8 +277,8 @@ const HomeBanner = () => {
             <Button
               variant="filled"
               radius="xl"
-              className="btn-primary"
-              size="md"
+              size="lg"
+              className="btn-primary lg"
             >
               Accelerate your startup
             </Button>

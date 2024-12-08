@@ -1,13 +1,20 @@
-import { SectionSubTitle, SectionTitle } from "@/styles/main.styles";
+import {
+  MainBannerTitle,
+  SectionSubTitle,
+  SectionTitle,
+} from "@/styles/main.styles";
 import { Box, Grid } from "@mantine/core";
 import { MilestoneContainerBlock } from "./MilestoneSection.styles";
 
 import Count from "@/components/Count";
 
-const MilestoneSection = ({ title, subtitle, data }) => {
+const MilestoneSection = ({ bannerTitle, title, subtitle, data }) => {
   return (
     <Box component="div" className="container">
-      <SectionTitle data-aos="fade">{title}</SectionTitle>
+      {bannerTitle && (
+        <MainBannerTitle data-aos="fade">{bannerTitle}</MainBannerTitle>
+      )}
+      {title && <SectionTitle data-aos="fade">{title}</SectionTitle>}
       {subtitle && (
         <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
       )}
@@ -16,7 +23,12 @@ const MilestoneSection = ({ title, subtitle, data }) => {
           {data.map((item, index) => (
             <Grid.Col span={{ base: 6, md: 6, lg: 3 }} key={index}>
               <Box component="div">
-                <Count countValue={item.count} label={item.label} suffix="+" />
+                <Count
+                  countValue={item.count}
+                  label={item.label}
+                  prefix={item.prefix}
+                  suffix={item.suffix}
+                />
               </Box>
             </Grid.Col>
           ))}

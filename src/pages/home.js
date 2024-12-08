@@ -12,10 +12,15 @@ import Arrow from "@/images/title-arrow.svg";
 import StarRed from "@/images/star-red.svg";
 import StarBlue from "@/images/star-blue.svg";
 import StarGreen from "@/images/star-green.svg";
-import DeepTech from "@/images/SVGIcons/DeepTech";
+
+import SA from "@/images/startup-accelerator.png";
+import EG from "@/images/expert-guidance.png";
+import SP from "@/images/strategic-partnerships.png";
+import FR from "@/images/funding-resources.png";
+import CO from "@/images/co-working-space.png";
 
 import CardTypeASection from "@/page-components/CardTypeASection";
-import StartupJourney from "@/page-components/StartupJourney";
+import HoverCardSection from "@/page-components/HoverCardSection";
 import MentorsSection from "@/page-components/MentorsSection";
 import {
   dataClient,
@@ -32,6 +37,7 @@ import Cipher from "@/images/SVGIcons/Cipher";
 import Tech from "@/images/SVGIcons/Tech";
 import Finseed from "@/images/SVGIcons/Finseed";
 import Pulse from "@/images/SVGIcons/Pulse";
+import DeepTech from "@/images/SVGIcons/DeepTech";
 import SuccessStories from "@/page-components/SuccessStories";
 import HomeBanner from "@/page-components/HomeBanner";
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
@@ -54,7 +60,7 @@ const home = () => {
           title={
             <>
               Startups We’re
-              <Box component="span" className="highlight">
+              <Box component="span" className="highlight hbf">
                 Proud to Back
               </Box>
               <Box component="span" ml={14}>
@@ -71,10 +77,10 @@ const home = () => {
         <MilestoneSection
           title={
             <>
-              Awarded{" "}
-              <Box component="span" className="highlight">
+              Awarded
+              <Box component="span" className="highlight hbf">
                 “best accelerator of India”
-              </Box>{" "}
+              </Box>
               in 2022 by the Government of India
               <Box component="span" ml={14}>
                 <Image src={Arrow} alt="Arrow" width={24} height={24} />
@@ -89,10 +95,10 @@ const home = () => {
         <WhyFoundersChoseIA
           title={
             <>
-              Why{" "}
-              <Box component="span" className="highlight">
+              Why
+              <Box component="span" className="highlight hbf">
                 400+ founders
-              </Box>{" "}
+              </Box>
               chose IA
             </>
           }
@@ -104,7 +110,7 @@ const home = () => {
             <>
               <Box component="span" className="highlight">
                 Expert Mentorship
-              </Box>{" "}
+              </Box>
               from Industry Leaders
               <Box component="span" ml={14}>
                 <Image src={Arrow} alt="Arrow" width={24} height={24} />
@@ -116,14 +122,24 @@ const home = () => {
         />
       </Section>
       <Section>
-        <SuccessStories data={successStoryData} />
+        <SuccessStories
+          title={
+            <>
+              <Box component="span" className="highlight">
+                Success Stories
+              </Box>
+              from Our Community
+            </>
+          }
+          data={successStoryData}
+        />
       </Section>
       <Section $hasTexture>
         <ClientMarquee
           title={
             <>
               Empowered by
-              <Box component="span" className="highlight">
+              <Box component="span" className="highlight hbf">
                 50+ partners
               </Box>
               <Box component="span" ml={14}>
@@ -140,7 +156,7 @@ const home = () => {
             <>
               <Box component="span" className="highlight">
                 Six Theses
-              </Box>{" "}
+              </Box>
               Defining Our Strategic Focus
             </>
           }
@@ -165,31 +181,37 @@ const home = () => {
             {
               icon: <IAgri />,
               title: "IA- iAgri",
+              path: "/",
               bodyText: "Fueling the Future of Agriculture",
             },
             {
               icon: <Cipher />,
               title: "IA Cipher",
+              path: "/",
               bodyText: "Fuel your cyber game",
             },
             {
               icon: <DeepTech />,
               title: "IA Deep Tech",
+              path: "/",
               bodyText: "Propelling startup innovation",
             },
             {
               icon: <Tech />,
               title: "IA'B2B Tech",
+              path: "/",
               bodyText: "Fueling the Future of Agriculture",
             },
             {
               icon: <Finseed />,
               title: "IA Finseed",
+              path: "/",
               bodyText: "Fuel your cyber game",
             },
             {
               icon: <Pulse />,
               title: "IA Pulse",
+              path: "/",
               bodyText: "Propelling startup innovation",
             },
           ]}
@@ -199,8 +221,8 @@ const home = () => {
         <CardTypeASection
           title={
             <>
-              We are a{" "}
-              <Box component="span" className="highlight">
+              We are a
+              <Box component="span" className="highlight hbf">
                 multi-stage, fund-led accelerator
               </Box>
             </>
@@ -229,7 +251,46 @@ const home = () => {
         />
       </Section>
       <Section>
-        <StartupJourney />
+        <HoverCardSection
+          asDynamic
+          title={
+            <>
+              How We Fuel Your
+              <Box component="span" className="highlight hbf">
+                Startup Journey
+              </Box>
+            </>
+          }
+          subtitle="Hands-on mentorship, access to expert networks, and resources designed
+        to drive growth and success for startups across various sectors"
+          data={[
+            {
+              image: SA,
+              text: "Startup Accelerator",
+              type: "green",
+            },
+            {
+              image: EG,
+              text: "Expert Guidance",
+              type: "yellow",
+            },
+            {
+              image: SP,
+              text: "Strategic Partnerships",
+              type: "blue",
+            },
+            {
+              image: FR,
+              text: "Funding Resources",
+              type: "red",
+            },
+            {
+              image: CO,
+              text: "Co working Space",
+              type: "green-v2",
+            },
+          ]}
+        />
       </Section>
       <Section $hasGreyBg>
         <PostFilter postsData={filteredPostsData} home />

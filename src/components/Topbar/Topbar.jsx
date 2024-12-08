@@ -141,7 +141,7 @@ export default function Topbar() {
                     style={{
                       overflow: "hidden",
                       marginTop: "-11px",
-                      marginLeft: "-6px",
+                      marginLeft: "-5px",
                       padding: "40px 0",
                     }}
                   >

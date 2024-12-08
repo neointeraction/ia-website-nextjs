@@ -24,8 +24,8 @@ export const HoveringImageblock = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   transition: 0.3s all ease-in-out;
-  width: 300px;
-  height: 300px;
+  width: ${(props) => (props.$asDynamic ? "300px" : "260px")};
+  height: ${(props) => (props.$asDynamic ? "300px" : "260px")};
   padding: 30px 30px 14px 30px;
   display: flex;
   justify-content: flex-end;

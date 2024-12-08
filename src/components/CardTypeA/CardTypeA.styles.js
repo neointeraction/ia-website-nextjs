@@ -11,3 +11,11 @@ export const CardTypeABodyText = styled.p`
   font-weight: 400;
   color: #282828;
 `;
+
+export const CardTypeAContainer = styled.div`
+  .route-link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;

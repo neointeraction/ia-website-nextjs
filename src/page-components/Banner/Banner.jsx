@@ -24,7 +24,8 @@ const Banner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
               <Button
                 variant="filled"
                 radius="xl"
-                className="btn-primary"
+                size="lg"
+                className="btn-primary lg"
                 onClick={onClick}
                 data-aos="fade"
               >

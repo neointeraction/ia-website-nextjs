@@ -105,18 +105,26 @@ export const mentorsData = [
 export const homeMilestoneData = [
   {
     count: 200,
+    prefix: "",
+    suffix: "+",
     label: "Startups accelerated",
   },
   {
     count: 400,
+    prefix: "",
+    suffix: "+",
     label: "Founders",
   },
   {
     count: 200,
+    prefix: "",
+    suffix: "+",
     label: "Startups accelerated",
   },
   {
     count: 400,
+    prefix: "",
+    suffix: "+",
     label: "Founders",
   },
 ];
@@ -156,5 +164,32 @@ export const successStoryData = [
     img: Img15,
     story:
       "Noraa's association with India Accelerator has been a strategic advantage. Their comprehensive support, including funding guidance and networking opportunities, has been a catalyst in our startup's progress. With their backing, we've navigated the challenges of entrepreneurship with confidence.",
+  },
+];
+
+export const accelerateMilestoneData = [
+  {
+    count: 50,
+    prefix: "$",
+    suffix: "M+",
+    label: "Funding Raised",
+  },
+  {
+    count: 85,
+    prefix: "",
+    suffix: "%",
+    label: "Success Rate",
+  },
+  {
+    count: 40,
+    prefix: "",
+    suffix: "+",
+    label: "Industry Mentors",
+  },
+  {
+    count: 100,
+    prefix: "",
+    suffix: "+",
+    label: "Strategic Partnerships",
   },
 ];
