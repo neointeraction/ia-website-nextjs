@@ -101,3 +101,13 @@ a {
   border-radius: 0;
   border-bottom: 1px solid #7e7e7e;
 }
+
+.breadcrumb-link {
+  font-size: 16px;
+  font-weight: 400;
+  color: #7e7e7e;
+}
+
+.mantine-Breadcrumbs-separator {
+  margin: 0 6px;
+}

@@ -5,10 +5,6 @@ export const StyledAccordionItem = styled(Accordion.Item)`
   border: none;
   border-bottom: 1px solid #e0e0e0;
   padding: 0;
-
-  &:last-child {
-    border-bottom: none;
-  }
 `;
 
 export const AccordionContainer = styled.div`

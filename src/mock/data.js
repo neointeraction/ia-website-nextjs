@@ -193,3 +193,79 @@ export const accelerateMilestoneData = [
     label: "Strategic Partnerships",
   },
 ];
+
+export const faqData = [
+  {
+    question:
+      "What perks and services are included in the Standard IA offering?",
+    answer:
+      "The Standard IA offering includes legal, accounting, technology, marketing support, office space, mentorship, and platform credits (AWS, Zoho, GCP). Startups also benefit from the Global Accelerator Network and corporate perks.",
+  },
+  {
+    question:
+      "What are the industry-specific initiatives provided by India Accelerator?",
+    answer:
+      "India Accelerator likely offers industry-specific workshops, mentorship, and networking opportunities tailored to sectors like technology, healthcare, and fintech.",
+  },
+  {
+    question: "How does India Accelerator's global network benefit startups?",
+    answer:
+      "The global network can provide access to international investors, potential customers, strategic partners, and industry experts.",
+  },
+  {
+    question: "How does India Accelerator assist startups in securing funding?",
+    answer:
+      "India Accelerator can help startups prepare pitch decks, connect with investors, and negotiate funding terms.",
+  },
+  {
+    question:
+      "What kind of mentorship and resources are provided during the accelerator program?",
+    answer:
+      "The accelerator program likely offers mentorship from experienced entrepreneurs, industry experts, and investors. Additionally, startups may receive access to resources like legal advice, marketing support, and technical assistance.",
+  },
+  {
+    question:
+      "How long is the India Accelerator program, and what industries does it cover?",
+    answer:
+      "India Accelerator programs typically last a few months, and they often focus on technology-based startups across various sectors.",
+  },
+];
+
+export const highlightsData = [
+  {
+    count: 10372,
+    prefix: "",
+    suffix: "cr",
+    label: "India AI Mission",
+  },
+  {
+    count: 10,
+    prefix: "",
+    suffix: "%",
+    label: "share in Corporate IT",
+  },
+  {
+    count: 552,
+    prefix: "$",
+    suffix: "bn",
+    label: "Global Market by 2030",
+  },
+  {
+    count: 17,
+    prefix: "$",
+    suffix: "bn",
+    label: "Market by 2030",
+  },
+  {
+    count: 4.4,
+    prefix: "$",
+    suffix: "Tn",
+    label: "Global Impact",
+  },
+  {
+    count: 10,
+    prefix: "",
+    suffix: "%",
+    label: "share spend by 2030",
+  },
+];

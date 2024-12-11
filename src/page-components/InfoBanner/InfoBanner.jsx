@@ -1,25 +1,25 @@
-import { Button, Grid, Stack } from "@mantine/core";
+import { Box, Button, Grid, Stack } from "@mantine/core";
 import {
   BannerContainer,
   BannerDisplayText,
   BannerTitle,
-} from "./Banner.styles";
+} from "./InfoBanner.styles";
 
 import Image from "next/image";
 
-const Banner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
+const InfoBanner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
   return (
-    <div className="container">
+    <Box className="container">
       <BannerContainer>
         <Grid align="center">
           <Grid.Col span={{ base: 12, md: 7, lg: 7 }}>
             <Stack align="flex-start" gap="lg">
-              <div>
+              <Box>
                 <BannerTitle data-aos="fade">{title}</BannerTitle>
                 <BannerDisplayText data-aos="fade">
                   {displayTitile}
                 </BannerDisplayText>
-              </div>
+              </Box>
 
               <Button
                 variant="filled"
@@ -43,8 +43,8 @@ const Banner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
           </Grid.Col>
         </Grid>
       </BannerContainer>
-    </div>
+    </Box>
   );
 };
 
-export default Banner;
+export default InfoBanner;

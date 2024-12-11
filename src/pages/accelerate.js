@@ -18,7 +18,11 @@ import Tech from "@/images/SVGIcons/Tech";
 import Finseed from "@/images/SVGIcons/Finseed";
 import Pulse from "@/images/SVGIcons/Pulse";
 import DeepTech from "@/images/SVGIcons/DeepTech";
-// import BannerImg from "@/images/banner1.png";
+import BannerImg from "@/images/banner1.png";
+import IAngels from "@/images/SVGIcons/IAngels";
+import Finvolve from "@/images/SVGIcons/Finvolve";
+import FundingSchemes from "@/images/SVGIcons/FundingSchemes";
+import InfoBanner from "@/page-components/InfoBanner";
 
 import GA1 from "@/images/ga1.png";
 import GA2 from "@/images/ga2.png";
@@ -28,6 +32,7 @@ import GA4 from "@/images/ga4.png";
 import {
   accelerateMilestoneData,
   dataClient,
+  faqData,
   mentorsData,
   successStoryData,
 } from "@/mock/data";
@@ -40,6 +45,7 @@ import StrategicFocusSection from "@/page-components/StrategicFocusSection";
 import CardTypeBSection from "@/page-components/CardTypeBSection";
 import React from "react";
 import HoverCardSection from "@/page-components/HoverCardSection";
+import FAQSection from "@/page-components/FAQSection";
 
 const accelerate = () => {
   const items = [{ title: "Accelerate" }].map((item, index) => (
@@ -65,7 +71,7 @@ const accelerate = () => {
       </>
       <Section>
         <Center>
-          <Breadcrumbs separator="→" separatorMargin="md" mt="xs">
+          <Breadcrumbs separator=">" separatorMargin="md" mt="xs">
             {items}
           </Breadcrumbs>
         </Center>
@@ -277,7 +283,7 @@ const accelerate = () => {
             {
               icon: StarRed,
               title: "Value Added Services",
-              path: "/home",
+              path: "/value-added-services",
               bodyText:
                 "Provides startups with a full range of financial, legal, and business management services to help them grow and succeed.",
             },
@@ -374,7 +380,61 @@ const accelerate = () => {
           ]}
         />
       </Section>
-      {/* **  */}
+      <Section>
+        <CardTypeBSection
+          hasTexturedCard
+          title={
+            <>
+              <Box component="span" className="highlight">
+                We Invest in Startups
+              </Box>
+              , Fueling Innovation and Growth
+              <Box component="span" ml={14}>
+                <Image src={Arrow} alt="Arrow" width={24} height={24} />
+              </Box>
+            </>
+          }
+          subtitle="Explore Our Funding Opportunities"
+          data={[
+            {
+              icon: <IAngels />,
+              title: "iAngels",
+              path: "/",
+              bodyText:
+                "Angel investors providing seed funding and strategic support.",
+            },
+            {
+              icon: <Finvolve />,
+              title: "Finvolve",
+              path: "/",
+              bodyText:
+                "A venture enabling wealth managers to invest in startups.",
+            },
+            {
+              icon: <FundingSchemes />,
+              title: "Funding Schemes",
+              path: "/",
+              bodyText: "Financial programs to boost startup growth.",
+            },
+          ]}
+        />
+      </Section>
+      <Section>
+        <InfoBanner
+          title="Ready to Grow?"
+          displayTitile={
+            <>
+              <span>Start your journey</span> with us today!
+            </>
+          }
+          btnText="Accelerate your startup"
+          onClick={() => {}}
+          bannerImg={BannerImg}
+        />
+      </Section>
+      <Section>
+        <FAQSection title="Frequently Asked Questions" data={faqData} />
+      </Section>
     </Box>
   );
 };

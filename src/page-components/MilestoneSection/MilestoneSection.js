@@ -8,7 +8,7 @@ import { MilestoneContainerBlock } from "./MilestoneSection.styles";
 
 import Count from "@/components/Count";
 
-const MilestoneSection = ({ bannerTitle, title, subtitle, data }) => {
+const MilestoneSection = ({ bannerTitle, title, subtitle, data, cols }) => {
   return (
     <Box component="div" className="container">
       {bannerTitle && (
@@ -19,9 +19,16 @@ const MilestoneSection = ({ bannerTitle, title, subtitle, data }) => {
         <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
       )}
       <MilestoneContainerBlock data-aos="fade">
-        <Grid justify="center" align="center">
+        <Grid justify="center" align="center" gutter="xl">
           {data.map((item, index) => (
-            <Grid.Col span={{ base: 6, md: 6, lg: 3 }} key={index}>
+            <Grid.Col
+              span={
+                cols === 3
+                  ? { base: 6, md: 6, lg: 4 }
+                  : { base: 6, md: 6, lg: 3 }
+              }
+              key={index}
+            >
               <Box component="div">
                 <Count
                   countValue={item.count}

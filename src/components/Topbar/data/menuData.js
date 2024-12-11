@@ -39,7 +39,11 @@ export const whatWeDoData = [
       {
         text: "Startup offerings",
         listSubData: [
-          { text: "Value added services", path: "/", img: RUMS },
+          {
+            text: "Value added services",
+            path: "/value-added-services",
+            img: RUMS,
+          },
           { text: "iScale", path: "/", img: RUMS },
           { text: "Perks & benefits", path: "/", img: RUMS },
         ],
@@ -64,7 +68,11 @@ export const whatWeDoData = [
       {
         text: "IAngels",
         listSubData: [
-          { text: "Value added services", path: "/", img: "" },
+          {
+            text: "Value added services",
+            path: "/value-added-services",
+            img: "",
+          },
           { text: "iScale", path: "/", img: "" },
           { text: "Perks & benefits", path: "/", img: "" },
         ],

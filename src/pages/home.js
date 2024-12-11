@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Box } from "@mantine/core";
 import Image from "next/image";
 
-import Banner from "@/page-components/Banner";
+import InfoBanner from "@/page-components/InfoBanner";
 import { Section } from "@/styles/main.styles";
 import BannerImg from "@/images/banner1.png";
 import PostFilter from "@/page-components/PostFilter";
@@ -296,7 +296,7 @@ const home = () => {
         <PostFilter postsData={filteredPostsData} home />
       </Section>
       <Section>
-        <Banner
+        <InfoBanner
           title="Ready to Grow?"
           displayTitile={
             <>

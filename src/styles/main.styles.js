@@ -52,7 +52,7 @@ export const SectionTitle = styled.h1`
 `;
 
 export const SectionSubTitle = styled.h2`
-  text-align: center;
+  text-align: ${(props) => (props.$leftAlign ? "left" : "center")};
   font-size: 20px;
   font-weight: 400;
   color: #282828;
