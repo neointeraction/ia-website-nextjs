@@ -1,3 +1,9 @@
+import PRBanner from "@/images/pr-services.png";
+import StarRed from "@/images/star-red.svg";
+import StarBlue from "@/images/star-blue.svg";
+import StarGreen from "@/images/star-green.svg";
+import StarYellow from "@/images/star-yellow.svg";
+
 // temp images - to be removed
 
 import BlogImg1 from "@/images/temp/1.png";
@@ -16,6 +22,20 @@ import Img12 from "@/images/temp/12.png";
 import Img13 from "@/images/temp/13.png";
 import Img14 from "@/images/temp/14.png";
 import Img15 from "@/images/temp/ss.png";
+import T1 from "@/images/temp/t1.png";
+import T2 from "@/images/temp/t2.png";
+
+export const TextSliderData = [
+  {
+    text: "Upcoming event:  Startup Growth Accelerator Summit 2024, October 15-16, 2024",
+  },
+  {
+    text: "Upcoming event:  Startup Growth Accelerator Summit 2024, October 15-16, 2024",
+  },
+  {
+    text: "Upcoming event:  Startup Growth Accelerator Summit 2024, October 15-16, 2024",
+  },
+];
 
 export const dataClient = [
   {
@@ -269,3 +289,90 @@ export const highlightsData = [
     label: "share spend by 2030",
   },
 ];
+
+export const mentorsSpeakData = [
+  {
+    img: T1,
+    name: "Anand Aggarwal",
+    designation: "Tech Entrepreneur and Mentor",
+    message:
+      "India Accelerator provides an unmatched platform for startups to thrive. As a mentor, I’ve seen firsthand how the guidance, resources, and community support offered here transform early-stage businesses into scalable ventures. IA’s dedication to nurturing innovation is truly inspiring, and I’m proud to be part of this journey.",
+  },
+  {
+    img: T2,
+    name: "Reema Jain",
+    designation: "CEO of Trust and Mentor",
+    message:
+      "India Accelerator provides an unmatched platform for startups to thrive. As a mentor, I’ve seen firsthand how the guidance, resources, and community support offered here transform early-stage businesses into scalable ventures. IA’s dedication to nurturing innovation is truly inspiring, and I’m proud to be part of this journey.",
+  },
+  {
+    img: T1,
+    name: "Anand Aggarwal",
+    designation: "Tech Entrepreneur and Mentor",
+    message:
+      "India Accelerator provides an unmatched platform for startups to thrive. As a mentor, I’ve seen firsthand how the guidance, resources, and community support offered here transform early-stage businesses into scalable ventures. IA’s dedication to nurturing innovation is truly inspiring, and I’m proud to be part of this journey.",
+  },
+];
+
+export const singularityBreadcrumbData = [
+  { title: "What we do", href: "#" },
+  { title: "Our theses", href: "#" },
+  { title: "Singularity/GenAI" },
+];
+
+export const upcomingEvents = [
+  {
+    date: "15 October",
+    title: "Startup Growth Accelerator Summit 2024",
+    subtitle:
+      "Whether you're a first-time founder or a seasoned entrepreneur, this event will provide you a detailed explanation..",
+    timing: "10:30 AM - 3:00 PM",
+    location: "The Grand Hall, Delhi",
+  },
+  {
+    date: "20 October",
+    title: "Virtual Meet and Greet ",
+    subtitle:
+      "Whether you're a first-time founder or a seasoned entrepreneur, this event will provide you a detailed explanation..",
+    timing: "10:30 AM - 3:00 PM",
+    location: "Virtual",
+  },
+  {
+    date: "28 October",
+    title: "Application Deadline: Last Chance AMA ",
+    subtitle:
+      "Whether you're a first-time founder or a seasoned entrepreneur, this event will provide you a detailed explanation..",
+    timing: "10:30 AM - 3:00 PM",
+    location: "Royal Convention Centre, Pune",
+  },
+];
+
+export const PRServicesData = {
+  bannerImg: PRBanner,
+  elements: [
+    {
+      icon: StarRed,
+      title: "PR and Media Relations",
+      description:
+        "Enhance visibility and trust through targeted PR campaigns and media coverage.",
+    },
+    {
+      icon: StarBlue,
+      title: "Influencer Marketing",
+      description:
+        "Boost awareness and growth by collaborating with influencers across key platforms.",
+    },
+    {
+      icon: StarGreen,
+      title: "Event PR",
+      description:
+        "Tailored strategies for event success, fostering engagement and stakeholder relationships.",
+    },
+    {
+      icon: StarYellow,
+      title: "Crisis Management",
+      description:
+        "Manage crises and rebuild trust with real-time, proactive communication.",
+    },
+  ],
+};

@@ -18,34 +18,18 @@ import {
   dataClient,
   highlightsData,
   mentorsData,
+  mentorsSpeakData,
+  singularityBreadcrumbData,
   successStoryData,
 } from "@/mock/data";
 import CardTypeASection from "@/page-components/CardTypeASection";
 import MilestoneSection from "@/page-components/MilestoneSection";
 import SuccessStories from "@/page-components/SuccessStories";
 import MentorsSection from "@/page-components/MentorsSection";
+import TestimonialSection from "@/page-components/TestimonialSection";
+import { breadcrumbGenerator } from "@/utils/breadcrumbs";
 
 const singularity = () => {
-  const breadcrumbData = [
-    { title: "What we do", href: "#" },
-    { title: "Our theses", href: "#" },
-    { title: "Singularity/GenAI" },
-  ].map((item, index) => (
-    <React.Fragment key={index}>
-      {item.href ? (
-        <UnstyledButton
-          href={item.href}
-          key={index}
-          className="breadcrumb-link"
-        >
-          {item.title}
-        </UnstyledButton>
-      ) : (
-        <BreadcrumbText> {item.title}</BreadcrumbText>
-      )}
-    </React.Fragment>
-  ));
-
   return (
     <Box>
       <>
@@ -57,7 +41,7 @@ const singularity = () => {
       </>
       <Section>
         <PageBanner
-          breadcrumbData={breadcrumbData}
+          breadcrumbData={breadcrumbGenerator(singularityBreadcrumbData)}
           title="Singularity/GenAI"
           subtitle="Generative Al is poised to unleash the next wave of productivity and digital revolution."
           btnText="Apply Now"
@@ -197,6 +181,20 @@ const singularity = () => {
           }
           subtitle="Our Mentor Board of industry experts provides guidance to help startups grow and succeed"
           data={mentorsData}
+        />
+      </Section>
+      <Section>
+        <TestimonialSection
+          title={
+            <>
+              <Box component="span" className="highlight">
+                Mentors
+              </Box>
+              speak
+            </>
+          }
+          subtitle="Our mentors share their experiences working with IA startups"
+          data={mentorsSpeakData}
         />
       </Section>
     </Box>

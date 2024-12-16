@@ -4,7 +4,15 @@ import { CardContainerBlock } from "./CardTypeASection.styles";
 import CardTypeA from "@/components/CardTypeA";
 import { useMediaQuery } from "@mantine/hooks";
 
-const CardTypeASection = ({ title, subtitle, data, flexed, cols, px }) => {
+const CardTypeASection = ({
+  title,
+  subtitle,
+  data,
+  flexed,
+  cols,
+  px,
+  hasBg,
+}) => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
     <Box component="div" className="container">
@@ -13,7 +21,7 @@ const CardTypeASection = ({ title, subtitle, data, flexed, cols, px }) => {
         <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
       )}
       <CardContainerBlock>
-        <Grid gutter={isMobileView ? 15 : 60} px={px ? 50 : 0}>
+        <Grid gutter={isMobileView ? 15 : hasBg ? 15 : 60} px={px ? 50 : 0}>
           {data.map((item, index) => (
             <Grid.Col
               span={
@@ -27,6 +35,7 @@ const CardTypeASection = ({ title, subtitle, data, flexed, cols, px }) => {
             >
               <Box component="div" data-aos="fade">
                 <CardTypeA
+                  hasBg={hasBg}
                   flexed={flexed}
                   icon={item.icon}
                   title={item.title}

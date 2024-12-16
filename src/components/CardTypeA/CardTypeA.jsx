@@ -10,14 +10,14 @@ import {
   CardTypeATitle,
 } from "./CardTypeA.styles";
 
-const CardTypeA = ({ icon, title, bodyText, flexed, path }) => {
+const CardTypeA = ({ icon, title, bodyText, flexed, path, hasBg }) => {
   const router = useRouter();
 
   return (
-    <CardTypeAContainer>
+    <CardTypeAContainer $hasBg={hasBg}>
       <Box component="div">
         {flexed ? (
-          <Group justify="flex-start" align="flex-star\" gap={10}>
+          <Group justify="flex-start" align="flex-start" gap={10} wrap="nowrap">
             {icon && (
               <Box component="div" mt={5}>
                 <Image src={icon} width={34} height={34} alt="icon" />

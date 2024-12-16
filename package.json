@@ -16,6 +16,7 @@
     "@mantine/hooks": "^7.14.3",
     "@tabler/icons-react": "^3.23.0",
     "aos": "^3.0.0-beta.6",
+    "embla-carousel-auto-scroll": "^8.5.1",
     "embla-carousel-autoplay": "^8.5.1",
     "embla-carousel-fade": "^8.5.1",
     "embla-carousel-react": "^8.5.1",
