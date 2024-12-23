@@ -104,21 +104,29 @@ export const mentorsData = [
     img: Img11,
     name: "Aman Gupta",
     designation: "CMO of boAt",
+    domain: "B2B",
+    theses: "",
   },
   {
     img: Img14,
     name: "Atul Bhatia",
     designation: "Co Founder of PRO",
+    domain: "B2B",
+    theses: "",
   },
   {
     img: Img13,
     name: "Kautuk Sri",
     designation: "Founder of HGF",
+    domain: "B2B",
+    theses: "",
   },
   {
     img: Img14,
     name: "Reema Jain",
     designation: "Reema Jain",
+    domain: "B2B",
+    theses: "",
   },
 ];
 
@@ -376,3 +384,81 @@ export const PRServicesData = {
     },
   ],
 };
+
+export const mentorsDataDetailed = [
+  {
+    img: Img11,
+    name: "Aman Gupta",
+    designation: "CMO of boAt",
+    domain: "B2B",
+    theses: "",
+  },
+  {
+    img: Img14,
+    name: "Atul Bhatia",
+    designation: "Co Founder of PRO",
+    domain: "B2B",
+    theses: "",
+  },
+  {
+    img: Img13,
+    name: "Kautuk Sri",
+    designation: "Founder of HGF",
+    domain: "B2B",
+    theses: "",
+  },
+  {
+    img: Img14,
+    name: "Reema Jain",
+    designation: "Reema Jain",
+    domain: "B2B",
+    theses: "",
+  },
+  {
+    img: Img11,
+    name: "Aman Gupta",
+    designation: "CMO of boAt",
+    domain: "B2B",
+    theses: "",
+  },
+  {
+    img: Img14,
+    name: "Atul Bhatia",
+    designation: "Co Founder of PRO",
+    domain: "B2B",
+    theses: "",
+  },
+  {
+    img: Img13,
+    name: "Kautuk Sri",
+    designation: "Founder of HGF",
+    domain: "B2B",
+    theses: "",
+  },
+  {
+    img: Img14,
+    name: "Reema Jain",
+    designation: "Reema Jain",
+    domain: "B2B",
+    theses: "",
+  },
+];
+
+export const galleryData = [
+  {
+    original: "https://picsum.photos/id/151/1200/600",
+    thumbnail: "https://picsum.photos/id/151/1200/700",
+  },
+  {
+    original: "https://picsum.photos/id/222/1200/600",
+    thumbnail: "https://picsum.photos/id/222/1200/700",
+  },
+  {
+    original: "https://picsum.photos/id/101/1200/600",
+    thumbnail: "https://picsum.photos/id/101/1200/700",
+  },
+  {
+    original: "https://picsum.photos/id/744/1200/600",
+    thumbnail: "https://picsum.photos/id/744/1200/700",
+  },
+];

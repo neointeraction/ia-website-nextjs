@@ -3,9 +3,11 @@ import {
   dataClient,
   faqData,
   filteredPostsData,
+  galleryData,
   highlightsData,
   homeMilestoneData,
   mentorsData,
+  mentorsDataDetailed,
   mentorsSpeakData,
   PRServicesData,
   singularityBreadcrumbData,
@@ -60,6 +62,7 @@ import { breadcrumbGenerator } from "@/utils/breadcrumbs";
 import TestimonialSection from "@/page-components/TestimonialSection";
 import EventSection from "@/page-components/EventSection";
 import TextImageSection from "@/page-components/TextImageSection";
+import GallerySection from "@/page-components/GallerySection";
 
 const components = () => {
   return (
@@ -227,6 +230,31 @@ const components = () => {
               data={mentorsData}
             />
           </Box>
+          {/* variation  */}
+          <Divider
+            my="xs"
+            label="MentorsSection - variation prop - withFilters"
+            labelPosition="left"
+            variant="dashed"
+          />
+          <Box py={20}>
+            <MentorsSection
+              withFilters
+              title={
+                <>
+                  Meet our
+                  <Box component="span" className="highlight hbf">
+                    Network of Investors
+                  </Box>
+                  <Box component="span" ml={14}>
+                    <Image src={Arrow} alt="Arrow" width={24} height={24} />
+                  </Box>
+                </>
+              }
+              subtitle="Our diverse network of visionary investors committed to driving innovation and growth."
+              data={mentorsDataDetailed}
+            />
+          </Box>
         </Paper>
         {/* SuccessStories  */}
         <Paper withBorder p="xl">
@@ -377,6 +405,78 @@ const components = () => {
                   title: "Funding Schemes",
                   path: "/",
                   bodyText: "Financial programs to boost startup growth.",
+                },
+              ]}
+            />
+          </Box>
+          {/* variation  */}
+          <Divider
+            my="xs"
+            label="CardTypeBSection - variation prop - withFilters"
+            labelPosition="left"
+            variant="dashed"
+          />
+          <Box py={20}>
+            <CardTypeBSection
+              withFilters
+              title={
+                <>
+                  Find the
+                  <Box component="span" className="highlight hbf">
+                    right program
+                  </Box>
+                  for your startup
+                </>
+              }
+              subtitle="Explore and find the perfect program to fast-track your startup's growth."
+              data={[
+                {
+                  icon: <IAgri />,
+                  title: "IA- iAgri",
+                  path: "/",
+                  bodyText: "Fueling the Future of Agriculture",
+                  domain: "B2B",
+                  theses: "",
+                },
+                {
+                  icon: <Cipher />,
+                  title: "IA Cipher",
+                  path: "/",
+                  bodyText: "Fuel your cyber game",
+                  domain: "",
+                  theses: "GaME",
+                },
+                {
+                  icon: <DeepTech />,
+                  title: "IA Deep Tech",
+                  path: "/",
+                  bodyText: "Propelling startup innovation",
+                  domain: "",
+                  theses: "RUMS",
+                },
+                {
+                  icon: <Tech />,
+                  title: "IA'B2B Tech",
+                  path: "/",
+                  bodyText: "Fueling the Future of Agriculture",
+                  domain: "",
+                  theses: "",
+                },
+                {
+                  icon: <Finseed />,
+                  title: "IA Finseed",
+                  path: "/",
+                  bodyText: "Fuel your cyber game",
+                  domain: "",
+                  theses: "",
+                },
+                {
+                  icon: <Pulse />,
+                  title: "IA Pulse",
+                  path: "/",
+                  bodyText: "Propelling startup innovation",
+                  domain: "",
+                  theses: "",
                 },
               ]}
             />
@@ -737,6 +837,28 @@ const components = () => {
                 </>
               }
               data={PRServicesData}
+            />
+          </Box>
+        </Paper>
+
+        {/* GallerySection  */}
+        <Paper withBorder p="xl">
+          <Divider
+            my="xs"
+            label="GallerySection"
+            labelPosition="left"
+            variant="dashed"
+          />
+          <Box py={20}>
+            <GallerySection
+              title={
+                <>
+                  <Box component="span" className="highlight hbf">
+                    Gallery
+                  </Box>
+                </>
+              }
+              data={galleryData}
             />
           </Box>
         </Paper>
