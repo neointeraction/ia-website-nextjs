@@ -68,6 +68,7 @@ export const MainBannerTitle = styled.h1`
   text-align: ${(props) => (props.$leftAlign ? "left" : "center")};
   font-size: 64px;
   font-weight: 600;
+  line-height: 89px;
   color: #0f0f0f;
   width: ${(props) => (props.$leftAlign ? "auto" : "fit-content")};
   margin: auto;
@@ -107,4 +108,11 @@ export const BreadcrumbText = styled.div`
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
+`;
+
+export const LoaderContainer = styled.div`
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

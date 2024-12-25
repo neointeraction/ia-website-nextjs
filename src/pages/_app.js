@@ -12,10 +12,9 @@ import "@mantine/carousel/styles.css";
 import "aos/dist/aos.css";
 
 import Topbar from "@/components/Topbar";
-import TextSlider from "@/components/TextSlider";
+
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
-import { TextSliderData } from "@/mock/data";
 
 export default function App({ Component, pageProps }) {
   const theme = createTheme({});
@@ -45,7 +44,7 @@ export default function App({ Component, pageProps }) {
   return (
     <MantineProvider theme={theme}>
       <Topbar />
-      <TextSlider data={TextSliderData} />
+
       <Component {...pageProps} />
       <Footer />
     </MantineProvider>
