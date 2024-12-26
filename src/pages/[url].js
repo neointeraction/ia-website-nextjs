@@ -358,6 +358,23 @@ const DynamicPage = ({ blocks, error }) => {
                   />
                 </Section>
               );
+
+            case "why-founders-chose-ia":
+              return (
+                <Section>
+                  <WhyFoundersChoseIA
+                    title={
+                      <>
+                        Why
+                        <Box component="span" className="highlight hbf">
+                          400+ founders
+                        </Box>
+                        chose IA
+                      </>
+                    }
+                  />
+                </Section>
+              );
             default:
               return null;
           }
