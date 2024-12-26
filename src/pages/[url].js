@@ -47,6 +47,7 @@ import {
   successStoryData,
 } from "@/mock/data";
 import generateRandomColor from "@/methods/generateRandomColor";
+import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 
 const DynamicPage = ({ blocks, error }) => {
   if (error) {
