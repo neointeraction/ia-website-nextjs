@@ -71,9 +71,9 @@ const dataSub = [
   {
     title: "Invest",
     links: [
-      { label: "Angels", link: "#" },
+      { label: "Angels", link: "/iangels" },
       { label: "Finvolve", link: "#" },
-      { label: "Funding schemes", link: "#" },
+      { label: "Funding schemes", link: "/fundingschemes" },
       { label: "Apply as an investor", link: "#" },
       { label: "Apply as a partner", link: "#" },
     ],
@@ -85,12 +85,12 @@ const dataSub = [
   {
     title: "Our theses",
     links: [
-      { label: "Robotics & Unmanned & Space (RUMS)", link: "#" },
-      { label: "Consumer", link: "#" },
-      { label: "Gaming, Media & Entertainment (GaME)", link: "#" },
-      { label: "Energy, Mobility & Connectivity (EMC)", link: "#" },
-      { label: "Singularity/GenAI", link: "#" },
-      { label: "Impact Labs", link: "#" },
+      { label: "Robotics & Unmanned & Space (RUMS)", link: "/theses-robotics-rums" },
+      { label: "Consumer", link: "/theses-consumer" },
+      { label: "Gaming, Media & Entertainment (GaME)", link: "/theses-gaming-media-entertainment-game" },
+      { label: "Energy, Mobility & Connectivity (EMC)", link: "/theses-energy-mobility-connectivityemc" },
+      { label: "Singularity/GenAI", link: "/theses-singularitygenai" },
+      { label: "Impact Labs", link: "/theses-impact-labs" },
     ],
   },
 ];
@@ -125,7 +125,8 @@ const Footer = () => {
         key={index}
         component="a"
         href={link.link}
-        onClick={(event) => event.preventDefault()}
+       // onClick={(event) => event.preventDefault()}
+       onClick={() => router.push(link.link)}
       >
         {link.label}
       </FooterLink>
