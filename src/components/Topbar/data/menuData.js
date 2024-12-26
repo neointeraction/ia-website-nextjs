@@ -36,7 +36,11 @@ export const whatWeDoData = [
       {
         text: "Accelerator programs",
         listSubData: [
-          { text: "Accelerator programs", path: "/", img: RUMS },
+          {
+            text: "Accelerator programs",
+            path: "/accelerator-programs",
+            img: RUMS,
+          },
           { text: "Program detail page", path: "/", img: RUMS },
         ],
       },
@@ -48,8 +52,8 @@ export const whatWeDoData = [
             path: "/value-added-services",
             img: RUMS,
           },
-          { text: "iScale", path: "/", img: RUMS },
-          { text: "Perks & benefits", path: "/", img: RUMS },
+          { text: "iScale", path: "/iscale", img: RUMS },
+          { text: "Perks & benefits", path: "/perks-benefits", img: RUMS },
         ],
       },
       {

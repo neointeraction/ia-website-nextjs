@@ -371,7 +371,6 @@ export async function getServerSideProps(context) {
   const { url } = context.params;
 
   try {
-    // Fetch route data
     const routeRes = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API_URL}/route?acf_format=standard`
     );
@@ -379,7 +378,6 @@ export async function getServerSideProps(context) {
 
     console.log(routes[0]?.acf?.page_routes, "routes");
 
-    // Match `post_name` with the URL
     const route = routes[0]?.acf?.page_routes.find(
       (r) => r.post_name.toLowerCase() === url.toLowerCase()
     );
@@ -388,7 +386,7 @@ export async function getServerSideProps(context) {
       return { notFound: true };
     }
     console.log(route.ID, "route.ID");
-    // Fetch page blocks using `ID`
+
     const pageRes = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API_URL}/pages/${route.ID}?acf_format=standard`
     );
