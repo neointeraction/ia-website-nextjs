@@ -11,22 +11,26 @@ export const whatWeDoData = [
         listSubData: [
           {
             text: "Robotics & Unmanned & Space (RUMS)",
-            path: "/",
+            path: "/theses-robotics-rums",
             img: RUMS,
           },
-          { text: "Consumer", path: "/", img: AP },
+          { text: "Consumer", path: "/theses-consumer", img: AP },
           {
             text: "Gaming, Media & Entertainment (GaME)",
-            path: "/",
+            path: "/theses-gaming-media-entertainment-game",
             img: RUMS,
           },
           {
             text: "Energy, Mobility & Connectivity(EMC)",
-            path: "/",
+            path: "/theses-energy-mobility-connectivityemc",
             img: RUMS,
           },
-          { text: "Singularity/GenAI", path: "/", img: RUMS },
-          { text: "Impact Labs", path: "/", img: RUMS },
+          {
+            text: "Singularity/GenAI",
+            path: "/theses-singularitygenai",
+            img: RUMS,
+          },
+          { text: "Impact Labs", path: "/theses-impact-labs", img: RUMS },
         ],
       },
       {

@@ -15,6 +15,7 @@ import {
   UnstyledButton,
   useMantineTheme,
 } from "@mantine/core";
+import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 
@@ -73,6 +74,7 @@ const mockdata = [
 ];
 
 export default function Topbar() {
+  const router = useRouter();
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
@@ -118,7 +120,12 @@ export default function Topbar() {
         <div className="container">
           <HeaderFlex>
             <HeaderFlexItem>
-              <Image src={Logo} width={208} height={24} alt="Logo" />
+              <UnstyledButton
+                component="a"
+                onClick={() => router.push("/homepage")}
+              >
+                <Image src={Logo} width={208} height={24} alt="Logo" />
+              </UnstyledButton>
             </HeaderFlexItem>
             <HeaderFlexItem $grow>
               <Group h="100%" gap={0} visibleFrom="sm">
