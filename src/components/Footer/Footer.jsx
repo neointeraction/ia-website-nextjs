@@ -16,11 +16,13 @@ import IG from "@/images//icons/ig.svg";
 import X from "@/images//icons/x.svg";
 import YT from "@/images//icons/yt.svg";
 
+import { useRouter } from "next/navigation";
+
 const data = [
   {
     title: "What we do",
     links: [
-      { label: "Accelerate", link: "#" },
+      { label: "Accelerate", link: "/accelerate" },
       { label: "Invest", link: "#" },
       { label: "Mentorship", link: "#" },
       { label: "Partnership programs", link: "#" },
@@ -94,13 +96,16 @@ const dataSub = [
 ];
 
 const Footer = () => {
+  const router = useRouter();
+
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
       <FooterLink
         key={index}
         component="a"
         href={link.link}
-        onClick={(event) => event.preventDefault()}
+        // onClick={(event) => event.preventDefault()}
+        onClick={() => router.push(link.link)}
       >
         {link.label}
       </FooterLink>
