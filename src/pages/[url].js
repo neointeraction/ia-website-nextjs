@@ -71,6 +71,7 @@ const DynamicPage = ({ blocks, error }) => {
       </Head>
       <div>
         {blocks.map((block, index) => {
+          console.log(block.post_type, "block.post_type");
           switch (block.post_type) {
             case "text-slider":
               return <TextSlider id={block.ID} key={index} />;
@@ -360,7 +361,7 @@ const DynamicPage = ({ blocks, error }) => {
                 </Section>
               );
 
-            case "why-founders-chose-ia":
+            case "why-founder-chose-ia":
               return (
                 <Section>
                   <WhyFoundersChoseIA
