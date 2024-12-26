@@ -28,7 +28,7 @@ const HoverCardSection = ({ title, subtitle, data, asDynamic }) => {
                     <HoveringImageblock type={item.type} $asDynamic={asDynamic}>
                       <Image
                         src={item.image}
-                        style={{ width: "auto", height: "auto" }}
+                        //style={{ width: "auto", height: "auto" }}
                         alt={item.image}
                       />
                     </HoveringImageblock>
@@ -47,7 +47,7 @@ const HoverCardSection = ({ title, subtitle, data, asDynamic }) => {
                     <HoveringImageblock type={item.type} $asDynamic={asDynamic}>
                       <Image
                         src={item.image}
-                        style={{ width: "auto", height: "auto" }}
+                       // style={{ width: "auto", height: "auto" }}
                         alt={item.image}
                       />
                     </HoveringImageblock>

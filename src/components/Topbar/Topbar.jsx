@@ -196,7 +196,7 @@ export default function Topbar() {
                   </Popover.Dropdown>
                 </Popover>
 
-                <Popover width={"100%"} position="bottom" withArrow shadow="md">
+                {/* <Popover width={"100%"} position="bottom" withArrow shadow="md">
                   <Popover.Target>
                     <a href="#" className={"link"}>
                       Who are we
@@ -218,9 +218,12 @@ export default function Topbar() {
                       </Grid>
                     </div>
                   </Popover.Dropdown>
-                </Popover>
-                <a href="#" className={"link"}>
-                  Companies
+                </Popover> */}
+                <a href="javascript:void(0)"  className={"link"} onClick={() => router.push("/whoweare")}>
+                Who are we
+                </a>
+                <a href="javascript:void(0)"  className={"link"} onClick={() => router.push("/whoweare")}>
+                 Brands
                 </a>
                 <a href="#" className={"link"}>
                   Co-working
