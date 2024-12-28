@@ -13,6 +13,7 @@ const StyledSectionTitle = styled.h1`
   }
   .highlight {
     font-weight: 600;
+    margin-left: 10px;
     margin-right: 10px;
     &.hbf {
       margin-left: 10px;
@@ -33,17 +34,15 @@ const StyledSectionTitle = styled.h1`
 `;
 
 const SectionTitle = ({ title, $highlight, $leftAlign }) => {
-  // Check if the $highlight phrase exists in the title
   const highlightedTitle = title
     .split($highlight)
     .reduce((acc, part, index, array) => {
-      // Add normal text
       acc.push(<span key={`part-${index}`}>{part}</span>);
 
-      // Add highlighted text if not the last part
       if (index < array.length - 1) {
         acc.push(
           <span key={`highlight-${index}`} className="highlight">
+            {part.trim() !== "" ? " " : ""}
             {$highlight}
           </span>
         );

@@ -13,11 +13,12 @@ import {
   singularityBreadcrumbData,
   successStoryData,
   TextSliderData,
+  timelineData,
   upcomingEvents,
 } from "@/mock/data";
 import ClientMarquee from "@/page-components/ClientMarquee";
 import HomeBanner from "@/page-components/HomeBanner";
-import { Box, Divider, Paper, Stack } from "@mantine/core";
+import { Box, Divider, Grid, Paper, Stack } from "@mantine/core";
 import Head from "next/head";
 import React from "react";
 
@@ -63,11 +64,11 @@ import TestimonialSection from "@/page-components/TestimonialSection";
 import EventSection from "@/page-components/EventSection";
 import TextImageSection from "@/page-components/TextImageSection";
 import GallerySection from "@/page-components/GallerySection";
-import ImageMask from "@/components/ImageMask";
 
-import Mask from "@/images/img-mask.png";
-import MaskW1 from "@/images/temp/w1.png";
-import WorkspaceCard from "@/components/WorkspaceCard";
+import WorkspaceSection from "@/page-components/WorkspaceSection";
+import VideoCard from "@/components/VideoCard";
+import VideoSection from "@/page-components/VideoSection";
+import SocialMediaFeedSection from "@/page-components/SocialMediaFeedSection";
 
 const components = () => {
   return (
@@ -79,17 +80,7 @@ const components = () => {
           <meta name="keywords" content="India Accelerator" />
         </Head>
       </>
-      {/* <div>
-        <WorkspaceCard
-          src={MaskW1}
-          maskSrc={Mask}
-          alt="Example Image with Mask"
-          title="MG Road Upper Ground Floor"
-          description="Located in the heart of Gurgaon's vibrant business district, this workspace offers easy access to transportation and amenities."
-          size="15,000 sq. ft."
-          members="300"
-        />
-      </div> */}
+
       <Stack
         bg="var(--mantine-color-body)"
         align="stretch"
@@ -879,6 +870,72 @@ const components = () => {
           </Box>
         </Paper>
       </Stack>
+      <>
+        {/* WorkspaceSection  */}
+        <Stack
+          bg="var(--mantine-color-body)"
+          align="stretch"
+          justify="center"
+          gap="lg"
+          py={20}
+        >
+          <Paper withBorder p="xl">
+            <Divider
+              my="xs"
+              label="WorkspaceSection"
+              labelPosition="left"
+              variant="dashed"
+            />
+            <Box py={20}>
+              <WorkspaceSection withFilters />
+            </Box>
+          </Paper>
+        </Stack>
+      </>
+      <>
+        {/* VideoSection  */}
+        <Stack
+          bg="var(--mantine-color-body)"
+          align="stretch"
+          justify="center"
+          gap="lg"
+          py={20}
+        >
+          <Paper withBorder p="xl">
+            <Divider
+              my="xs"
+              label="VideoSection"
+              labelPosition="left"
+              variant="dashed"
+            />
+            <Box py={20}>
+              <VideoSection />
+            </Box>
+          </Paper>
+        </Stack>
+      </>
+      <>
+        {/* SocialMediaFeedSection  */}
+        <Stack
+          bg="var(--mantine-color-body)"
+          align="stretch"
+          justify="center"
+          gap="lg"
+          py={20}
+        >
+          <Paper withBorder p="xl">
+            <Divider
+              my="xs"
+              label="SocialMediaFeedSection"
+              labelPosition="left"
+              variant="dashed"
+            />
+            <Box py={20}>
+              <SocialMediaFeedSection />
+            </Box>
+          </Paper>
+        </Stack>
+      </>
     </Box>
   );
 };

@@ -113,3 +113,11 @@ a {
 .mantine-Breadcrumbs-separator {
   margin: 0 6px;
 }
+
+.video-modal .mantine-Modal-header {
+  display: none;
+}
+
+.video-modal .mantine-Modal-body {
+  padding: 0;
+}
