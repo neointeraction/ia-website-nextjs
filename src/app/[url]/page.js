@@ -45,29 +45,6 @@ import {
 // import generateRandomColor from "@/methods/generateRandomColor";
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 
-// async function fetchData(url) {
-//   const routeRes = await fetch(
-//     `${process.env.NEXT_PUBLIC_BASE_API_URL}/route?acf_format=standard`,
-//     { next: { revalidate: 3600 } }
-//   );
-//   const routes = await routeRes.json();
-//   const route = routes[0]?.acf?.page_routes.find(
-//     (r) => r.post_name.toLowerCase() === url.toLowerCase()
-//   );
-
-//   if (!route) {
-//     throw new Error("Route not found");
-//   }
-
-//   const pageRes = await fetch(
-//     `${process.env.NEXT_PUBLIC_BASE_API_URL}/pages/${route.ID}?acf_format=standard`,
-//     { next: { revalidate: 3600 } }
-//   );
-//   const pageData = await pageRes.json();
-
-//   return pageData.acf?.["page-blocks"] || [];
-// }
-
 async function fetchData(url) {
   const routeRes = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_API_URL}/route?acf_format=standard`,
@@ -110,6 +87,16 @@ async function fetchData(url) {
             );
             const textSliderData = await textSliderRes.json();
             block.data = textSliderData.acf?.TextSlider || [];
+            break;
+          case "page-banner": // New case for page-banner
+            const pageBannerRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/page-banner/${block.ID}?acf_format=standard`,
+              { next: { revalidate: 3600 } }
+            );
+            const pageBannerData = await pageBannerRes.json();
+
+            block.data = pageBannerData.acf || {};
+            console.log(block.data, "block.data");
             break;
           default:
             break;
@@ -168,8 +155,7 @@ export default async function DynamicPage({ params }) {
           case "page-banner":
             return (
               <div className="Section" key={index}>
-                {console.log(block.ID, "block.ID")}
-                <PageBanner id={block.ID} />
+                <PageBanner id={block.ID} data={block.data} />
               </div>
             );
           case "milestone-section":

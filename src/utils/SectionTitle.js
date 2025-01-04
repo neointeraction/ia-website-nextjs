@@ -37,7 +37,7 @@ const StyledSectionTitle = styled.h1`
 
 const SectionTitle = ({ title, $highlight, $leftAlign }) => {
   const highlightedTitle = title
-    .split($highlight)
+    ?.split($highlight)
     .reduce((acc, part, index, array) => {
       acc.push(<span key={`part-${index}`}>{part}</span>);
 
