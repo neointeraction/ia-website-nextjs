@@ -15,6 +15,7 @@ import CardTypeBSection from "@/page-components/CardTypeBSection";
 import InfoBanner from "@/page-components/InfoBanner";
 import FAQSection from "@/page-components/FAQSection";
 
+// temps
 import SA from "@/images/startup-accelerator.png";
 import EG from "@/images/expert-guidance.png";
 import SP from "@/images/strategic-partnerships.png";
@@ -31,18 +32,16 @@ import Finseed from "@/images/SVGIcons/Finseed";
 import Pulse from "@/images/SVGIcons/Pulse";
 import DeepTech from "@/images/SVGIcons/DeepTech";
 import BannerImg from "@/images/banner1.png";
-// import Banner from "@/images/singularity-banner.png";
+
 import Arrow from "@/images/title-arrow.svg";
 
 import {
   accelerateMilestoneData,
-  // dataClient,
   faqData,
   mentorsData,
-  // singularityBreadcrumbData,
   successStoryData,
 } from "@/mock/data";
-// import generateRandomColor from "@/methods/generateRandomColor";
+
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 import VideoSection from "@/page-components/VideoSection";
 
@@ -68,7 +67,6 @@ async function fetchData(url) {
 
   const blocks = pageData.acf?.["page-blocks"] || [];
 
-  // Fetch additional data for each block
   const updatedBlocks = await Promise.all(
     blocks.map(async (block) => {
       try {
@@ -89,7 +87,7 @@ async function fetchData(url) {
             const textSliderData = await textSliderRes.json();
             block.data = textSliderData.acf?.TextSlider || [];
             break;
-          case "page-banner": // New case for page-banner
+          case "page-banner":
             const pageBannerRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/page-banner/${block.ID}?acf_format=standard`,
               { next: { revalidate: 3600 } }
