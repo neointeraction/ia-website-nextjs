@@ -1,6 +1,7 @@
 {
   "name": "ia-next",
   "version": "0.1.0",
+  "author": "Shameer - Neointeraction",
   "private": true,
   "scripts": {
     "dev": "next dev",

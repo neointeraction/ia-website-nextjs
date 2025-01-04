@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-const StyledSectionTitle = styled.h1`
+const StyledSectionTitle = styled.h2`
   text-align: ${(props) => (props.$leftAlign ? "left" : "center")};
   font-size: 38px;
   font-weight: 400;
