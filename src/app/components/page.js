@@ -68,7 +68,7 @@ import TextImageSection from "@/page-components/TextImageSection";
 import GallerySection from "@/page-components/GallerySection";
 
 import WorkspaceSection from "@/page-components/WorkspaceSection";
-import VideoCard from "@/components/VideoCard";
+
 import VideoSection from "@/page-components/VideoSection";
 import SocialMediaFeedSection from "@/page-components/SocialMediaFeedSection";
 

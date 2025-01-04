@@ -44,6 +44,7 @@ import {
 } from "@/mock/data";
 // import generateRandomColor from "@/methods/generateRandomColor";
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
+import VideoSection from "@/page-components/VideoSection";
 
 async function fetchData(url) {
   const routeRes = await fetch(
@@ -428,6 +429,12 @@ export default async function DynamicPage({ params }) {
                     </>
                   }
                 />
+              </div>
+            );
+          case "video-section":
+            return (
+              <div className="Section">
+                <VideoSection />
               </div>
             );
           default:
