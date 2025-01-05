@@ -6,17 +6,18 @@ import React from "react";
 import { FAQContainer } from "./FAQSection.styles";
 import FAQComponent from "@/components/FAQComponent";
 
-const FAQSection = ({ title, subtitle, data }) => {
+const FAQSection = ({ data }) => {
+  const { title, sub_title, data: faqData } = data; // Rename the inner `data` to `faqData`
   return (
     <Box component="div" className="container">
       <SectionTitle $leftAlign data-aos="fade">
         {title}
       </SectionTitle>
-      {subtitle && (
-        <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
+      {sub_title && (
+        <SectionSubTitle data-aos="fade">{sub_title}</SectionSubTitle>
       )}
       <FAQContainer>
-        <FAQComponent data={data} />
+        <FAQComponent data={faqData} />
       </FAQContainer>
     </Box>
   );

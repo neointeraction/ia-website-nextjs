@@ -45,10 +45,12 @@ import {
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 import VideoSection from "@/page-components/VideoSection";
 
+const IST_TIMEOUT = 0;
+
 async function fetchData(url) {
   const routeRes = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_API_URL}/route?acf_format=standard`,
-    { next: { revalidate: 3600 } }
+    { next: { revalidate: IST_TIMEOUT } }
   );
   const routes = await routeRes.json();
   const route = routes[0]?.acf?.page_routes.find(
@@ -61,7 +63,7 @@ async function fetchData(url) {
 
   const pageRes = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_API_URL}/pages/${route.ID}?acf_format=standard`,
-    { next: { revalidate: 3600 } }
+    { next: { revalidate: IST_TIMEOUT } }
   );
   const pageData = await pageRes.json();
 
@@ -74,7 +76,7 @@ async function fetchData(url) {
           case "client-marquee":
             const clientMarqueeRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/client-marquee/${block.ID}?acf_format=standard`,
-              { next: { revalidate: 3600 } }
+              { next: { revalidate: IST_TIMEOUT } }
             );
             const clientMarqueeData = await clientMarqueeRes.json();
             block.data = clientMarqueeData.acf || {};
@@ -82,7 +84,7 @@ async function fetchData(url) {
           case "text-slider":
             const textSliderRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/text-slider/${block.ID}?acf_format=standard`,
-              { next: { revalidate: 3600 } }
+              { next: { revalidate: IST_TIMEOUT } }
             );
             const textSliderData = await textSliderRes.json();
             block.data = textSliderData.acf?.TextSlider || [];
@@ -90,12 +92,30 @@ async function fetchData(url) {
           case "page-banner":
             const pageBannerRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/page-banner/${block.ID}?acf_format=standard`,
-              { next: { revalidate: 3600 } }
+              { next: { revalidate: IST_TIMEOUT } }
             );
             const pageBannerData = await pageBannerRes.json();
 
             block.data = pageBannerData.acf || {};
-            console.log(block.data, "block.data");
+
+            break;
+          case "faq-section":
+            const faqRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/faq-section/${block.ID}?acf_format=standard`,
+              { next: { revalidate: IST_TIMEOUT } }
+            );
+            const faqData = await faqRes.json();
+            block.data = faqData.acf || {};
+            console.log(block.data, "faq block.data");
+            break;
+          case "mentors-section":
+            const mentorsRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/mentors-section/${block.ID}?acf_format=standard`,
+              { next: { revalidate: IST_TIMEOUT } }
+            );
+            const mentorsData = await mentorsRes.json();
+            block.data = mentorsData.acf || {};
+            console.log(block.data, "mentorsData block.data");
             break;
           default:
             break;
@@ -185,21 +205,7 @@ export default async function DynamicPage({ params }) {
           case "mentors-section":
             return (
               <div className="Section" key={index}>
-                <MentorsSection
-                  title={
-                    <>
-                      <Box component="span" className="highlight">
-                        Expert Mentorship
-                      </Box>
-                      from Industry Leaders
-                      <Box component="span" ml={14}>
-                        <Image src={Arrow} alt="Arrow" width={24} height={24} />
-                      </Box>
-                    </>
-                  }
-                  subtitle="Our network of mentors helps startups overcome challenges and scale with confidence."
-                  data={mentorsData}
-                />
+                <MentorsSection data={block.data} />
               </div>
             );
           case "card-type-a-section":
@@ -410,7 +416,7 @@ export default async function DynamicPage({ params }) {
           case "faq-section":
             return (
               <div className="Section" key={index}>
-                <FAQSection title="Frequently Asked Questions" data={faqData} />
+                <FAQSection data={block.data} />
               </div>
             );
           case "why-founder-chose-ia":

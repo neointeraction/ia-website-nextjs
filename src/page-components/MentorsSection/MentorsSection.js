@@ -1,22 +1,31 @@
 "use client";
 
-import { SectionSubTitle, SectionTitle } from "@/styles/main.styles";
+import { SectionSubTitle } from "@/styles/main.styles";
 import { Box, Grid, Select } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { FilterBlock, MentorsContainerBlock } from "./MentorsSection.styles";
 
 import UserProfileCard from "@/components/UserProfileCard";
-import generateRandomColor from "@/methods/generateRandomColor";
+
 import { Carousel } from "@mantine/carousel";
 import { useState } from "react";
+import SectionTitle from "@/utils/SectionTitle";
 
-const MentorsSection = ({ title, subtitle, data, withFilters }) => {
+const MentorsSection = ({ data }) => {
+  const {
+    title,
+    highlight_text: highlightedText,
+    sub_title: subtitle,
+    data: mentorsData,
+    withFilters,
+  } = data;
+
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   const [domain, setDomain] = useState("");
   const [theses, setTheses] = useState("");
 
-  const filteredData = data.filter((item) => {
+  const filteredData = mentorsData.filter((item) => {
     const matchesDomain = !domain || item.domain === domain;
     const matchesThesis = !theses || item.theses === theses;
     return matchesDomain && matchesThesis;
@@ -24,7 +33,7 @@ const MentorsSection = ({ title, subtitle, data, withFilters }) => {
 
   return (
     <Box component="div" className="container">
-      <SectionTitle data-aos="fade">{title}</SectionTitle>
+      <SectionTitle $highlight={highlightedText} title={title} />
       {subtitle && (
         <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
       )}
@@ -92,8 +101,7 @@ const MentorsSection = ({ title, subtitle, data, withFilters }) => {
               <Grid.Col span={3} key={index}>
                 <Box component="div">
                   <UserProfileCard
-                    img={item.img}
-                    fill={generateRandomColor()}
+                    img={item.image}
                     name={item.name}
                     designation={item.designation}
                   />
@@ -112,8 +120,7 @@ const MentorsSection = ({ title, subtitle, data, withFilters }) => {
               <Carousel.Slide key={index}>
                 <Box component="div">
                   <UserProfileCard
-                    img={item.img}
-                    fill={generateRandomColor()}
+                    img={item.image}
                     name={item.name}
                     designation={item.designation}
                   />

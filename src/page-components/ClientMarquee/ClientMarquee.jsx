@@ -15,8 +15,6 @@ import SectionTitle from "@/utils/SectionTitle";
 const ClientMarquee = ({ data }) => {
   const { title, highlight_text: highlightedText, logos = [] } = data;
 
-  console.log(data, "data-clientmar");
-
   return (
     <Box className="container">
       <SectionTitle

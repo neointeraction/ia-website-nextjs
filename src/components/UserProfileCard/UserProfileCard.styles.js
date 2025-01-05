@@ -7,6 +7,12 @@ export const UPTitle = styled.h2`
 `;
 
 export const UserProfileCardContainer = styled.div`
+  position: relative;
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
   cursor: pointer;
   &:hover {
     ${UPTitle} {

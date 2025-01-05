@@ -1,6 +1,3 @@
-// Import styles of packages that you've installed.
-// All packages except `@mantine/hooks` require styles imports
-
 import "@fontsource/open-sauce-two";
 import "@fontsource/open-sauce-two/400.css";
 import "@fontsource/open-sauce-two/500.css";
@@ -9,7 +6,6 @@ import "@fontsource/open-sauce-two/900.css";
 import "@/styles/globals.css";
 import "@/styles/bootstrap-grid.css";
 import "@mantine/carousel/styles.css";
-// import "aos/dist/aos.css";
 import "@mantine/core/styles.css";
 
 import {
@@ -17,12 +13,15 @@ import {
   MantineProvider,
   mantineHtmlProps,
 } from "@mantine/core";
+
 import StyledComponentsRegistry from "@/lib/registry";
+
 import Topbar from "@/components/Topbar";
 import Footer from "@/components/Footer";
+import { AOSInit } from "@/utils/AOS";
 
 export const metadata = {
-  title: "IA - India Accelerator",
+  title: "IA - India Accelerator Web",
   description: "India Accelerator web",
 };
 
@@ -32,6 +31,7 @@ export default function RootLayout({ children }) {
       <head>
         <ColorSchemeScript />
       </head>
+      <AOSInit />
       <body>
         <MantineProvider>
           <StyledComponentsRegistry>

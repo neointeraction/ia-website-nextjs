@@ -53,7 +53,7 @@ const SectionTitle = ({ title, $highlight, $leftAlign }) => {
     }, []);
 
   return (
-    <StyledSectionTitle $leftAlign={$leftAlign}>
+    <StyledSectionTitle $leftAlign={$leftAlign} data-aos="fade">
       {highlightedTitle}
     </StyledSectionTitle>
   );
