@@ -25,7 +25,7 @@ const MentorsSection = ({ data }) => {
   const [domain, setDomain] = useState("");
   const [theses, setTheses] = useState("");
 
-  const filteredData = mentorsData.filter((item) => {
+  const filteredData = mentorsData?.filter((item) => {
     const matchesDomain = !domain || item.domain === domain;
     const matchesThesis = !theses || item.theses === theses;
     return matchesDomain && matchesThesis;
