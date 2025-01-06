@@ -7,8 +7,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "13.250.1.115",
+        protocol: "https",
+        hostname: "website.indiaaccelerator.co",
         port: "",
         pathname: "/wp-content/uploads/**",
       },
