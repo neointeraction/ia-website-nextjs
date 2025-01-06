@@ -37,7 +37,7 @@ import { accelerateMilestoneData, successStoryData } from "@/mock/data";
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 import VideoSection from "@/page-components/VideoSection";
 
-const ISR_TIMEOUT = 10;
+const ISR_TIMEOUT = 60;
 
 async function fetchData(url) {
   const routeRes = await fetch(
