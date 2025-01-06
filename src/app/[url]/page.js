@@ -39,6 +39,8 @@ import VideoSection from "@/page-components/VideoSection";
 
 const ISR_TIMEOUT = 60;
 
+export const revalidate = 60;
+
 async function fetchData(url) {
   const routeRes = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_API_URL}/route?acf_format=standard`,
