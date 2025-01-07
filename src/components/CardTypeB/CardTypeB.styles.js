@@ -79,7 +79,7 @@ export const CardTypeBContainer = styled.div`
     props.$hasTexturedCard &&
     css`
       background-image: url(@/../card-texture.png);
-      background-repeat: no-repeat;
+      background-repeat: round;
       background-size: cover;
       padding: 30px 30px;
       min-height: 262px;

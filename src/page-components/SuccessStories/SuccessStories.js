@@ -7,7 +7,6 @@ import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
 
-import { SectionTitle } from "@/styles/main.styles";
 import {
   CarouselContainer,
   StoryText,
@@ -15,29 +14,46 @@ import {
   SuccessStoriesContainer,
 } from "./SuccessStories.styles";
 import { useState } from "react";
+import SectionTitle from "@/utils/SectionTitle";
 
-const SuccessStories = ({ title, data, hideFilters }) => {
+const SuccessStories = ({ data }) => {
+  if (!data) {
+    return null;
+  }
+
+  const {
+    title,
+    highlight_: highlightedText,
+    hide_filters: hideFilters,
+    data: successStoriesData,
+  } = data;
+
   const autoplay = useRef(Autoplay());
   const fadeAnimation = useRef(Fade());
 
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [storyPosts, setStoryPosts] = useState(data);
+  const [storyPosts, setStoryPosts] = useState(successStoriesData);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     if (category === "All") {
-      setStoryPosts(data);
+      setStoryPosts(successStoriesData);
     } else {
-      setStoryPosts(data.filter((post) => post.category === category));
+      setStoryPosts(
+        successStoriesData.filter((post) => post.category === category)
+      );
     }
   };
 
   return (
     <Box component="div" className="container">
       <SuccessStoriesContainer>
-        <SectionTitle $leftAlign data-aos="fade">
-          {title}
-        </SectionTitle>
+        <SectionTitle
+          $leftAlign
+          data-aos="fade"
+          $highlight={highlightedText}
+          title={title}
+        />
         {!hideFilters && (
           <Group
             data-aos="fade"
@@ -124,8 +140,9 @@ const SuccessStories = ({ title, data, hideFilters }) => {
                     </Grid.Col>
                     <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
                       <Image
-                        src={item.img}
-                        style={{ width: "100%", height: "100%" }}
+                        src={item.image?.url}
+                        width={250}
+                        height={300}
                         alt="ss-img"
                       />
                     </Grid.Col>

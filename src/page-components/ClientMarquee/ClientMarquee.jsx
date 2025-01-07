@@ -2,7 +2,7 @@
 
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
-import { Box } from "@mantine/core";
+import { Box, Grid } from "@mantine/core";
 
 import {
   ClientLogoContainer,
@@ -13,7 +13,7 @@ import { SectionSubTitle } from "@/styles/main.styles";
 import SectionTitle from "@/utils/SectionTitle";
 
 const ClientMarquee = ({ data }) => {
-  const { title, highlight_text: highlightedText, logos = [] } = data;
+  const { title, highlight_text: highlightedText, logos = [], grid } = data;
 
   return (
     <Box className="container">
@@ -27,20 +27,35 @@ const ClientMarquee = ({ data }) => {
         <SectionSubTitle data-aos="fade">{data.subtitle}</SectionSubTitle>
       )}
       <ClientLogoContainer data-aos="fade">
-        <Marquee pauseOnHover>
-          <ClientLogoFlex>
+        {grid ? (
+          <Grid gutter={40}>
             {logos.map((item, index) => (
-              <ClientLogoItem key={index}>
+              <Grid.Col span={{ base: 12, md: 6, lg: 2 }} key={index}>
                 <Image
                   src={item.logoImg.url}
                   alt="client-logo"
                   width={item.logoImg.width}
                   height={item.logoImg.height}
                 />
-              </ClientLogoItem>
+              </Grid.Col>
             ))}
-          </ClientLogoFlex>
-        </Marquee>
+          </Grid>
+        ) : (
+          <Marquee pauseOnHover>
+            <ClientLogoFlex>
+              {logos.map((item, index) => (
+                <ClientLogoItem key={index}>
+                  <Image
+                    src={item.logoImg.url}
+                    alt="client-logo"
+                    width={item.logoImg.width}
+                    height={item.logoImg.height}
+                  />
+                </ClientLogoItem>
+              ))}
+            </ClientLogoFlex>
+          </Marquee>
+        )}
       </ClientLogoContainer>
     </Box>
   );

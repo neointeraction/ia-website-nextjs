@@ -11,14 +11,34 @@ import {
   CardTypeBContainer,
   CardTypeBTitle,
 } from "./CardTypeB.styles";
+import { useState } from "react";
 
-const CardTypeB = ({ icon, title, bodyText, hasTexturedCard, path }) => {
+const CardTypeB = ({
+  iconNormal,
+  iconHover,
+  title,
+  bodyText,
+  hasTexturedCard,
+  path,
+}) => {
   const router = useRouter();
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <Box component="div">
+    <Box
+      component="div"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <CardTypeBContainer $hasTexturedCard={hasTexturedCard}>
         <Stack gap="xs">
-          {icon && icon}
+          <Box>
+            {isHovered ? (
+              <Image src={iconHover} alt="Arrow" width={46} height={46} />
+            ) : (
+              <Image src={iconNormal} alt="Arrow" width={46} height={46} />
+            )}
+          </Box>
           <Group justify="flex-start" gap={16}>
             <UnstyledButton onClick={() => router.push(path)}>
               <CardTypeBTitle>{title}</CardTypeBTitle>

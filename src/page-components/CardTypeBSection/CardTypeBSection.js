@@ -1,27 +1,35 @@
 "use client";
 
-import { SectionSubTitle, SectionTitle } from "@/styles/main.styles";
+import { SectionSubTitle } from "@/styles/main.styles";
 import { Box, Center, Grid, Select, TextInput } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 import { CardContainerBlock, FilterBlock } from "./CardTypeBSection.styles";
 import { IconSearch } from "@tabler/icons-react";
 import CardTypeB from "@/components/CardTypeB";
+import SectionTitle from "@/utils/SectionTitle";
 
-const CardTypeBSection = ({
-  title,
-  subtitle,
-  data,
-  withFilters,
-  hasTexturedCard,
-}) => {
+const CardTypeBSection = ({ data }) => {
+  if (!data) {
+    return null;
+  }
+
+  const {
+    has_textured_card: hasTexturedCard,
+    title,
+    sub_title: subtitle,
+    highlight: highlightedText,
+    with_filters: withFilters,
+    data: componentData,
+  } = data;
+
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   const [domain, setDomain] = useState("");
   const [theses, setTheses] = useState("");
   const [search, setSearch] = useState("");
 
-  const filteredData = data.filter((item) => {
+  const filteredData = componentData.filter((item) => {
     const matchesDomain = !domain || item.domain === domain;
     const matchesThesis = !theses || item.theses === theses;
     const matchesSearch =
@@ -31,7 +39,11 @@ const CardTypeBSection = ({
 
   return (
     <Box component="div" className="container">
-      <SectionTitle data-aos="fade">{title}</SectionTitle>
+      <SectionTitle
+        data-aos="fade"
+        $highlight={highlightedText}
+        title={title}
+      />
       {subtitle && (
         <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
       )}
@@ -109,9 +121,10 @@ const CardTypeBSection = ({
                 <Center className="mob-center">
                   <CardTypeB
                     hasTexturedCard={hasTexturedCard}
-                    icon={item.icon}
+                    iconNormal={item.icon_normal.url}
+                    iconHover={item.icon_hover.url}
                     title={item.title}
-                    bodyText={item.bodyText}
+                    bodyText={item.body_text}
                     path={item.path}
                   />
                 </Center>

@@ -20,19 +20,7 @@ import EG from "@/images/expert-guidance.png";
 import SP from "@/images/strategic-partnerships.png";
 import FR from "@/images/funding-resources.png";
 import CO from "@/images/co-working-space.png";
-import StarRed from "@/images/star-red.svg";
-import StarBlue from "@/images/star-blue.svg";
-import StarGreen from "@/images/star-green.svg";
-import StarYellow from "@/images/star-yellow.svg";
-import IAgri from "@/images/SVGIcons/IAgri";
-import Cipher from "@/images/SVGIcons/Cipher";
-import Tech from "@/images/SVGIcons/Tech";
-import Finseed from "@/images/SVGIcons/Finseed";
-import Pulse from "@/images/SVGIcons/Pulse";
-import DeepTech from "@/images/SVGIcons/DeepTech";
 import BannerImg from "@/images/banner1.png";
-
-import { accelerateMilestoneData, successStoryData } from "@/mock/data";
 
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 import VideoSection from "@/page-components/VideoSection";
@@ -74,6 +62,7 @@ async function fetchData(url) {
             );
             const clientMarqueeData = await clientMarqueeRes.json();
             block.data = clientMarqueeData.acf || {};
+            console.log(block.data, "clientMarqueeData block.data");
             break;
           case "text-slider":
             const textSliderRes = await fetch(
@@ -90,6 +79,7 @@ async function fetchData(url) {
             );
             const pageBannerData = await pageBannerRes.json();
             block.data = pageBannerData.acf || {};
+
             break;
           case "faq-section":
             const faqRes = await fetch(
@@ -98,6 +88,7 @@ async function fetchData(url) {
             );
             const faqData = await faqRes.json();
             block.data = faqData.acf || {};
+
             break;
           case "mentors-section":
             const mentorsRes = await fetch(
@@ -106,17 +97,18 @@ async function fetchData(url) {
             );
             const mentorsData = await mentorsRes.json();
             block.data = mentorsData.acf || {};
+
             break;
-          case "card-type-a-section": // TO BE MAPPED
+          case "card-type-a-section":
             const cardARes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/card-type-a-section/${block.ID}?acf_format=standard`,
               { next: { revalidate: ISR_TIMEOUT } }
             );
             const cardAData = await cardARes.json();
             block.data = cardAData.acf || {};
-            console.log(cardAData, "cardAData block.data");
+
             break;
-          case "card-type-b-section": // TO BE MAPPED
+          case "card-type-b-section":
             const cardBRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/card-type-b-section/${block.ID}?acf_format=standard`,
               { next: { revalidate: ISR_TIMEOUT } }
@@ -134,14 +126,22 @@ async function fetchData(url) {
             block.data = successStoryData.acf || {};
             console.log(successStoryData, "successStoryData block.data");
             break;
-          case "video-section": // TO BE MAPPED
+          case "video-section":
             const videoRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/video-section/${block.ID}?acf_format=standard`,
               { next: { revalidate: ISR_TIMEOUT } }
             );
             const videoData = await videoRes.json();
             block.data = videoData.acf || {};
-            console.log(videoData, "videoData block.data");
+            break;
+          case "milestone-section":
+            const milestoneRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/milestone-section/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );
+            const milestoneData = await milestoneRes.json();
+            block.data = milestoneData.acf || {};
+            console.log(milestoneData, "milestoneData block.data");
             break;
           default:
             break;
@@ -206,26 +206,13 @@ export default async function DynamicPage({ params }) {
           case "milestone-section":
             return (
               <div className="Section" key={index}>
-                <MilestoneSection
-                  id={block.ID}
-                  bannerTitle={
-                    <>
-                      Ready to
-                      <Box component="span" className="highlight hbf">
-                        accelerate
-                      </Box>
-                      your startup?
-                    </>
-                  }
-                  subtitle="Our Accelerator Programs offers curated mentorship, connections, and a comprehensive support system for growth-stage startups."
-                  data={accelerateMilestoneData}
-                />
+                <MilestoneSection data={block.data} />
               </div>
             );
           case "client-marquee":
             return (
               <div className="Section hasTexture" key={index}>
-                <ClientMarquee id={block.ID} data={block.data} />
+                <ClientMarquee data={block.data} />
               </div>
             );
           case "mentors-section":
@@ -237,45 +224,7 @@ export default async function DynamicPage({ params }) {
           case "card-type-a-section":
             return (
               <div className="Section" key={index}>
-                <CardTypeASection
-                  flexed
-                  cols={2}
-                  title={
-                    <>
-                      Why
-                      <Box component="span" className="highlight hbf">
-                        200+ Startups
-                      </Box>
-                      Trust Our Accelerator
-                    </>
-                  }
-                  data={[
-                    {
-                      icon: StarRed,
-                      title: "Accelerated Growth",
-                      bodyText:
-                        "Fast-track your startup’s growth and market readiness.",
-                    },
-                    {
-                      icon: StarBlue,
-                      title: "Expert Guidance",
-                      bodyText:
-                        "Learn from leaders who've successfully scaled businesses.",
-                    },
-                    {
-                      icon: StarGreen,
-                      title: "Increased Chances of Success",
-                      bodyText:
-                        "85% success rate of securing follow-on funding",
-                    },
-                    {
-                      icon: StarYellow,
-                      title: "Access to Capital",
-                      bodyText:
-                        "Immediate exposure to investors who trust our track record. ",
-                    },
-                  ]}
-                />
+                <CardTypeASection flexed cols={2} data={block.data} />
               </div>
             );
           case "hover-cardsection":
@@ -325,18 +274,7 @@ export default async function DynamicPage({ params }) {
           case "success-story":
             return (
               <div className="Section" key={index}>
-                <SuccessStories
-                  hideFilters
-                  title={
-                    <>
-                      <Box component="span" className="highlight">
-                        Success Stories
-                      </Box>
-                      from Our Founders
-                    </>
-                  }
-                  data={successStoryData}
-                />
+                <SuccessStories data={block.data} />
               </div>
             );
           case "strategic-focus-sect":
@@ -358,69 +296,7 @@ export default async function DynamicPage({ params }) {
           case "card-type-b-section":
             return (
               <div className="Section" key={index}>
-                <CardTypeBSection
-                  withFilters
-                  title={
-                    <>
-                      Find the
-                      <Box component="span" className="highlight hbf">
-                        right program
-                      </Box>
-                      for your startup
-                    </>
-                  }
-                  subtitle="Explore and find the perfect program to fast-track your startup's growth."
-                  data={[
-                    {
-                      icon: <IAgri />,
-                      title: "IA- iAgri",
-                      path: "/",
-                      bodyText: "Fueling the Future of Agriculture",
-                      domain: "B2B",
-                      theses: "",
-                    },
-                    {
-                      icon: <Cipher />,
-                      title: "IA Cipher",
-                      path: "/",
-                      bodyText: "Fuel your cyber game",
-                      domain: "",
-                      theses: "GaME",
-                    },
-                    {
-                      icon: <DeepTech />,
-                      title: "IA Deep Tech",
-                      path: "/",
-                      bodyText: "Propelling startup innovation",
-                      domain: "",
-                      theses: "RUMS",
-                    },
-                    {
-                      icon: <Tech />,
-                      title: "IA'B2B Tech",
-                      path: "/",
-                      bodyText: "Fueling the Future of Agriculture",
-                      domain: "",
-                      theses: "",
-                    },
-                    {
-                      icon: <Finseed />,
-                      title: "IA Finseed",
-                      path: "/",
-                      bodyText: "Fuel your cyber game",
-                      domain: "",
-                      theses: "",
-                    },
-                    {
-                      icon: <Pulse />,
-                      title: "IA Pulse",
-                      path: "/",
-                      bodyText: "Propelling startup innovation",
-                      domain: "",
-                      theses: "",
-                    },
-                  ]}
-                />
+                <CardTypeBSection data={block.data} />
               </div>
             );
           case "info-banner":
@@ -464,7 +340,7 @@ export default async function DynamicPage({ params }) {
           case "video-section":
             return (
               <div className="Section">
-                <VideoSection />
+                <VideoSection data={block.data} />
               </div>
             );
           default:
