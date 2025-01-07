@@ -9,7 +9,19 @@ import {
 
 import Image from "next/image";
 
-const InfoBanner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
+const InfoBanner = ({ data, onClick }) => {
+  if (!data) {
+    return null;
+  }
+
+  const {
+    title,
+
+    display_title: displayTitile,
+    button_label: btnText,
+    banner_img,
+  } = data;
+
   return (
     <Box className="container">
       <BannerContainer>
@@ -38,9 +50,10 @@ const InfoBanner = ({ title, displayTitile, btnText, onClick, bannerImg }) => {
           <Grid.Col span={{ base: 12, md: 5, lg: 5 }}>
             <Image
               data-aos="fade"
-              src={bannerImg}
+              src={banner_img?.url}
               alt="banner-img"
-              style={{ width: "100%", height: "auto" }}
+              width={438}
+              height={319}
             />
           </Grid.Col>
         </Grid>

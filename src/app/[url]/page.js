@@ -24,6 +24,7 @@ import BannerImg from "@/images/banner1.png";
 
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 import VideoSection from "@/page-components/VideoSection";
+import SocialMediaFeedSection from "@/page-components/SocialMediaFeedSection";
 
 const ISR_TIMEOUT = 60;
 
@@ -143,6 +144,33 @@ async function fetchData(url) {
             block.data = milestoneData.acf || {};
             console.log(milestoneData, "milestoneData block.data");
             break;
+          case "hover-cardsection":
+            const hoverRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/hover-cardsection/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );
+            const hoverData = await hoverRes.json();
+            block.data = hoverData.acf || {};
+            console.log(hoverData, "hoverData block.data");
+            break;
+          case "info-banner":
+            const infoBannerRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/info-banner/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );
+            const infoBannerData = await infoBannerRes.json();
+            block.data = infoBannerData.acf || {};
+            console.log(infoBannerData, "infoBannerData block.data");
+            break;
+          case "social-media-feed":
+            const socialMediaFeedRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/social-media-feed/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );
+            const socialMediaFeedData = await socialMediaFeedRes.json();
+            block.data = socialMediaFeedData.acf || {};
+            console.log(socialMediaFeedData, "socialMediaFeedData block.data");
+            break;
           default:
             break;
         }
@@ -230,45 +258,7 @@ export default async function DynamicPage({ params }) {
           case "hover-cardsection":
             return (
               <div className="Section" key={index}>
-                <HoverCardSection
-                  asDynamic
-                  title={
-                    <>
-                      How We Fuel Your
-                      <Box component="span" className="highlight hbf">
-                        Startup Journey
-                      </Box>
-                    </>
-                  }
-                  subtitle="Hands-on mentorship, access to expert networks, and resources designed to drive growth and success for startups across various sectors"
-                  data={[
-                    {
-                      image: SA,
-                      text: "Startup Accelerator",
-                      type: "green",
-                    },
-                    {
-                      image: EG,
-                      text: "Expert Guidance",
-                      type: "yellow",
-                    },
-                    {
-                      image: SP,
-                      text: "Strategic Partnerships",
-                      type: "blue",
-                    },
-                    {
-                      image: FR,
-                      text: "Funding Resources",
-                      type: "red",
-                    },
-                    {
-                      image: CO,
-                      text: "Co working Space",
-                      type: "green-v2",
-                    },
-                  ]}
-                />
+                <HoverCardSection asDynamic data={block.data} />
               </div>
             );
           case "success-story":
@@ -302,17 +292,7 @@ export default async function DynamicPage({ params }) {
           case "info-banner":
             return (
               <div className="Section" key={index}>
-                <InfoBanner
-                  title="Ready to Grow?"
-                  displayTitile={
-                    <>
-                      <span>Start your journey</span> with us today!
-                    </>
-                  }
-                  btnText="Accelerate your startup"
-                  // onClick={() => {}}
-                  bannerImg={BannerImg}
-                />
+                <InfoBanner data={block.data} />
               </div>
             );
           case "faq-section":
@@ -341,6 +321,12 @@ export default async function DynamicPage({ params }) {
             return (
               <div className="Section">
                 <VideoSection data={block.data} />
+              </div>
+            );
+          case "social-media-feed":
+            return (
+              <div className="Section">
+                <SocialMediaFeedSection data={block.data} />
               </div>
             );
           default:

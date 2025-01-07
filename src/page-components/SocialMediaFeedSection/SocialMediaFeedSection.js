@@ -8,13 +8,19 @@ import { igData, videoData } from "@/mock/data";
 import { useMediaQuery } from "@mantine/hooks";
 import { CardContainerBlock } from "./SocialMediaFeedSection.styles";
 
-const SocialMediaFeedSection = ({ subtitle }) => {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
-  const [data, setData] = useState([]);
+const SocialMediaFeedSection = ({ data }) => {
+  if (!data) {
+    return null;
+  }
 
-  useEffect(() => {
-    setData(igData);
-  }, []);
+  const { social_media_embed_code: socialData } = data;
+
+  const isMobileView = useMediaQuery("(max-width: 768px)");
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   setData(igData);
+  // }, []);
 
   useEffect(() => {
     // Load the Instagram embed script
@@ -26,7 +32,7 @@ const SocialMediaFeedSection = ({ subtitle }) => {
     return () => {
       document.body.removeChild(script); // Cleanup on unmount
     };
-  }, [data]);
+  }, [socialData]);
 
   return (
     <Box component="div" className="container">
@@ -35,18 +41,18 @@ const SocialMediaFeedSection = ({ subtitle }) => {
         $highlight={"Stay Connected"}
         title={"Stay Connected: Highlights from Our Socials"}
       />
-      {subtitle && (
+      {/* {subtitle && (
         <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
-      )}
+      )} */}
       <CardContainerBlock>
         <Grid gutter={isMobileView ? 15 : 15}>
-          {data.map((item, index) => (
+          {socialData.map((item, index) => (
             <Grid.Col span={{ base: 12, md: 6, lg: 4 }} key={index}>
               <Box
                 component="div"
                 data-aos="fade"
                 dangerouslySetInnerHTML={{
-                  __html: item.src,
+                  __html: item.post_embed_code,
                 }}
               />
             </Grid.Col>

@@ -13,16 +13,6 @@ export const StartupJourneyCardFlex = styled.div`
 `;
 
 export const HoveringImageblock = styled.div`
-  background-image: ${({ type }) =>
-    type === "yellow"
-      ? "url(@/../card-yellow.png)"
-      : type === "blue"
-      ? "url(@/../card-blue.png)"
-      : type === "green-v2"
-      ? "url(@/../card-green-v2.png)"
-      : "url(@/../card-green.png)"};
-  background-size: cover;
-  background-repeat: no-repeat;
   transition: 0.3s all ease-in-out;
   width: ${(props) => (props.$asDynamic ? "300px" : "260px")};
   height: ${(props) => (props.$asDynamic ? "300px" : "260px")};
@@ -31,16 +21,7 @@ export const HoveringImageblock = styled.div`
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-
   &:hover {
-    background-image: ${({ type }) =>
-      type === "yellow"
-        ? "url(@/../card-yellow-hover.png)"
-        : type === "blue"
-        ? "url(@/../card-blue-hover.png)"
-        : type === "green-v2"
-        ? "url(@/../card-green-v2-hover.png)"
-        : "url(@/../card-green-hover.png)"};
     transition: 0.3s all ease-in-out;
   }
 `;

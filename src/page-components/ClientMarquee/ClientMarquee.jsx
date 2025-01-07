@@ -9,11 +9,18 @@ import {
   ClientLogoFlex,
   ClientLogoItem,
 } from "./ClientMarquee.styles";
+
 import { SectionSubTitle } from "@/styles/main.styles";
 import SectionTitle from "@/utils/SectionTitle";
 
 const ClientMarquee = ({ data }) => {
-  const { title, highlight_text: highlightedText, logos = [], grid } = data;
+  const {
+    title,
+    highlight_text: highlightedText,
+    sub_title: subtitle,
+    logos = [],
+    grid,
+  } = data;
 
   return (
     <Box className="container">
@@ -23,8 +30,8 @@ const ClientMarquee = ({ data }) => {
         title={title}
       />
 
-      {data.subtitle && (
-        <SectionSubTitle data-aos="fade">{data.subtitle}</SectionSubTitle>
+      {subtitle && (
+        <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
       )}
       <ClientLogoContainer data-aos="fade">
         {grid ? (

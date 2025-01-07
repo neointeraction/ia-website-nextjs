@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BannerContainer = styled.section`
   background-image: url(@/../banner-bg.png);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: round;
   height: 100%;
   padding: 32px 60px;
 `;

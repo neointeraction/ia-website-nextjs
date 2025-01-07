@@ -1,14 +1,12 @@
 "use client";
 
-import {
-  MainBannerTitle,
-  SectionSubTitle,
-  SectionTitle,
-} from "@/styles/main.styles";
+import { SectionSubTitle } from "@/styles/main.styles";
 import { Box, Grid } from "@mantine/core";
 import { MilestoneContainerBlock } from "./MilestoneSection.styles";
 
 import Count from "@/components/Count";
+import SectionTitle from "@/utils/SectionTitle";
+import MainBannerTitle from "@/utils/MainBannerTitle";
 
 const MilestoneSection = ({ data }) => {
   if (!data) {
@@ -27,9 +25,19 @@ const MilestoneSection = ({ data }) => {
   return (
     <Box component="div" className="container">
       {bannerTitle && (
-        <MainBannerTitle data-aos="fade">{bannerTitle}</MainBannerTitle>
+        <MainBannerTitle
+          data-aos="fade"
+          $highlight={highlightedText}
+          title={bannerTitle}
+        />
       )}
-      {title && <SectionTitle data-aos="fade">{title}</SectionTitle>}
+      {title && (
+        <SectionTitle
+          data-aos="fade"
+          $highlight={highlightedText}
+          title={title}
+        />
+      )}
       {subtitle && (
         <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
       )}
