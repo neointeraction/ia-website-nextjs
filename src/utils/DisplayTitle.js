@@ -2,10 +2,11 @@
 
 import styled from "styled-components";
 
-const StyledSectionTitle = styled.h2`
+export const StyledDisplayTitle = styled.h2`
   text-align: ${(props) => (props.$leftAlign ? "left" : "center")};
-  font-size: 38px;
-  font-weight: 400;
+  font-size: 58px;
+  font-weight: 600;
+  line-height: 89px;
   color: #0f0f0f;
   width: ${(props) => (props.$leftAlign ? "auto" : "fit-content")};
   margin: auto;
@@ -26,30 +27,24 @@ const StyledSectionTitle = styled.h2`
     background-color: #f7c822;
     display: block;
     width: 100%;
-    height: 16px;
-    margin-top: -22px;
+    height: 25px;
+    margin-top: -36px;
   }
   @media (max-width: 768px) {
-    font-size: 28px;
+    font-size: 38px;
     text-align: left;
   }
 `;
 
-const SectionTitle = ({
-  title,
-  $highlight,
-  $leftAlign,
-  infoBannerSectionTitle,
-}) => {
+const DisplayTitle = ({ title, $highlight, $leftAlign }) => {
   const highlightedTitle = title
-    ?.split($highlight)
+    .split($highlight)
     .reduce((acc, part, index, array) => {
       acc.push(<span key={`part-${index}`}>{part}</span>);
 
       if (index < array.length - 1) {
         acc.push(
           <span key={`highlight-${index}`} className="highlight">
-            {part.trim() !== "" ? " " : ""}
             {$highlight}
           </span>
         );
@@ -58,10 +53,10 @@ const SectionTitle = ({
     }, []);
 
   return (
-    <StyledSectionTitle $leftAlign={$leftAlign} data-aos="fade">
+    <StyledDisplayTitle $leftAlign={$leftAlign}>
       {highlightedTitle}
-    </StyledSectionTitle>
+    </StyledDisplayTitle>
   );
 };
 
-export default SectionTitle;
+export default DisplayTitle;

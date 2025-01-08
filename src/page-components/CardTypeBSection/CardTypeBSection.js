@@ -20,6 +20,7 @@ const CardTypeBSection = ({ data }) => {
     sub_title: subtitle,
     highlight: highlightedText,
     with_filters: withFilters,
+    cols,
     data: componentData,
   } = data;
 
@@ -116,13 +117,26 @@ const CardTypeBSection = ({ data }) => {
       <CardContainerBlock>
         <Grid gutter={isMobileView ? 15 : hasTexturedCard ? 15 : 60}>
           {filteredData.map((item, index) => (
-            <Grid.Col span={{ base: 12, md: 6, lg: 4 }} key={index}>
+            <Grid.Col
+              span={
+                cols === 2
+                  ? { base: 12, md: 6, lg: 6 }
+                  : cols === 4
+                  ? { base: 12, md: 6, lg: 3 }
+                  : { base: 12, md: 6, lg: 4 }
+              }
+              key={index}
+            >
               <Box component="div" data-aos="fade">
                 <Center className="mob-center">
                   <CardTypeB
                     hasTexturedCard={hasTexturedCard}
-                    iconNormal={item.icon_normal.url}
-                    iconHover={item.icon_hover.url}
+                    iconNormal={item.icon_normal?.url}
+                    iconHover={
+                      item.icon_hover?.url
+                        ? item.icon_hover?.url
+                        : item.icon_normal?.url
+                    }
                     title={item.title}
                     bodyText={item.body_text}
                     path={item.path}

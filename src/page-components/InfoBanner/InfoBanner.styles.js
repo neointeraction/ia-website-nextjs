@@ -6,6 +6,10 @@ export const BannerContainer = styled.section`
   background-repeat: round;
   height: 100%;
   padding: 32px 60px;
+  .info-banner-img {
+    width: auto;
+    height: auto;
+  }
 `;
 
 export const BannerTitle = styled.h2`

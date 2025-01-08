@@ -8,6 +8,9 @@ import {
 } from "./InfoBanner.styles";
 
 import Image from "next/image";
+import { SectionSubTitle } from "@/styles/main.styles";
+import DisplayTitle from "@/utils/DisplayTitle";
+import SectionTitle from "@/utils/SectionTitle";
 
 const InfoBanner = ({ data, onClick }) => {
   if (!data) {
@@ -16,8 +19,9 @@ const InfoBanner = ({ data, onClick }) => {
 
   const {
     title,
-
+    subtitle,
     display_title: displayTitile,
+    highlight: highlightedText,
     button_label: btnText,
     banner_img,
   } = data;
@@ -25,14 +29,31 @@ const InfoBanner = ({ data, onClick }) => {
   return (
     <Box className="container">
       <BannerContainer>
-        <Grid align="center">
+        <Grid align="center" justify="space-between">
           <Grid.Col span={{ base: 12, md: 7, lg: 7 }}>
             <Stack align="flex-start" gap="lg">
               <Box>
-                <BannerTitle data-aos="fade">{title}</BannerTitle>
-                <BannerDisplayText data-aos="fade">
-                  {displayTitile}
-                </BannerDisplayText>
+                {title && (
+                  <SectionTitle
+                    $leftAlign
+                    data-aos="fade"
+                    $highlight={highlightedText}
+                    title={title}
+                  />
+                )}
+
+                {displayTitile && (
+                  <DisplayTitle
+                    $leftAlign
+                    data-aos="fade"
+                    $highlight={highlightedText}
+                    title={displayTitile}
+                  />
+                )}
+
+                {subtitle && (
+                  <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
+                )}
               </Box>
 
               <Button
@@ -47,13 +68,17 @@ const InfoBanner = ({ data, onClick }) => {
               </Button>
             </Stack>
           </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 5, lg: 5 }}>
+          <Grid.Col
+            span={{ base: 12, md: 5, lg: 5 }}
+            style={{ textAlign: "right" }}
+          >
             <Image
               data-aos="fade"
               src={banner_img?.url}
               alt="banner-img"
               width={438}
               height={319}
+              className="info-banner-img"
             />
           </Grid.Col>
         </Grid>

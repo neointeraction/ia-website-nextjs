@@ -15,6 +15,9 @@ export const CardTypeABodyText = styled.p`
 export const CardTypeAContainer = styled.div`
   background-color: ${(props) => (props.$hasBg ? "#F3F3F3" : "transpartent")};
   padding: ${(props) => (props.$hasBg ? "24px" : "0")};
+  .card-a-img {
+    height: auto;
+  }
   .route-link {
     &:hover {
       text-decoration: underline;

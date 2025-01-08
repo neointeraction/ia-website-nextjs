@@ -22,7 +22,13 @@ const CardTypeA = ({ icon, title, bodyText, flexed, path, hasBg }) => {
           <Group justify="flex-start" align="flex-start" gap={10} wrap="nowrap">
             {icon && (
               <Box component="div" mt={5}>
-                <Image src={icon} width={34} height={34} alt="icon" />
+                <Image
+                  src={icon}
+                  width={34}
+                  height={34}
+                  alt="icon"
+                  className="card-a-img"
+                />
               </Box>
             )}
             <Stack gap="xs">
@@ -45,7 +51,15 @@ const CardTypeA = ({ icon, title, bodyText, flexed, path, hasBg }) => {
           </Group>
         ) : (
           <Stack gap="xs">
-            {icon && <Image src={icon} width={34} height={34} alt="icon" />}
+            {icon && (
+              <Image
+                src={icon}
+                width={34}
+                height={34}
+                alt="icon"
+                className="card-a-img"
+              />
+            )}
             {path !== undefined ? (
               <UnstyledButton
                 onClick={() => router.push(path)}
