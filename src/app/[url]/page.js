@@ -258,7 +258,7 @@ export default async function DynamicPage({ params }) {
           case "hover-cardsection":
             return (
               <div className="Section" key={index}>
-                <HoverCardSection asDynamic data={block.data} />
+                <HoverCardSection data={block.data} />
               </div>
             );
           case "success-story":

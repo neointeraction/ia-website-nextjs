@@ -16,7 +16,7 @@ import { Carousel } from "@mantine/carousel";
 import SectionTitle from "@/utils/SectionTitle";
 import { useState } from "react";
 
-const HoverCardSection = ({ data, asDynamic }) => {
+const HoverCardSection = ({ data }) => {
   if (!data) {
     return null;
   }
@@ -26,6 +26,7 @@ const HoverCardSection = ({ data, asDynamic }) => {
     sub_title: subtitle,
     highlight_text: highlightedText,
     data: hoverCardData,
+    asDynamic,
   } = data;
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -72,6 +73,7 @@ const HoverCardSection = ({ data, asDynamic }) => {
                           transition: "opacity 0.3s ease-in-out",
                           opacity: hoveredIndex === index ? 1 : 0.9,
                         }}
+                        className="hover-card-img"
                       />
                     </HoveringImageblock>
                     <SJCTitle>{item.text}</SJCTitle>
@@ -112,6 +114,7 @@ const HoverCardSection = ({ data, asDynamic }) => {
                           transition: "opacity 0.3s ease-in-out",
                           opacity: hoveredIndex === index ? 1 : 0.9,
                         }}
+                        className="hover-card-img"
                       />
                     </HoveringImageblock>
                     <SJCTitle>{item.text}</SJCTitle>
