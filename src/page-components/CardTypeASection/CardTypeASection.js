@@ -39,9 +39,9 @@ const CardTypeASection = ({ data }) => {
           {componentData.map((item, index) => (
             <Grid.Col
               span={
-                cols === 2
+                Number(cols) === 2
                   ? { base: 12, md: 6, lg: 6 }
-                  : cols === 4
+                  : Number(cols) === 4
                   ? { base: 12, md: 6, lg: 3 }
                   : { base: 12, md: 6, lg: 4 }
               }

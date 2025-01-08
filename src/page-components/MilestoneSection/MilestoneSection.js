@@ -46,7 +46,7 @@ const MilestoneSection = ({ data }) => {
           {milestoneData.map((item, index) => (
             <Grid.Col
               span={
-                cols === 3
+                 Number(cols) === 3
                   ? { base: 6, md: 6, lg: 4 }
                   : { base: 6, md: 6, lg: 3 }
               }

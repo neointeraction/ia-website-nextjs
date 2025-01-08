@@ -52,7 +52,7 @@ const InfoBanner = ({ data, onClick }) => {
                 )}
 
                 {subtitle && (
-                  <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
+                  <SectionSubTitle  $leftAlign data-aos="fade">{subtitle}</SectionSubTitle>
                 )}
               </Box>
 

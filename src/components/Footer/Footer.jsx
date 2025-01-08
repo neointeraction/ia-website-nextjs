@@ -27,7 +27,7 @@ const data = [
       { label: "We accelerate", link: "/accelerate" },
       { label: "We fund you", link: "/we-fund-you" },
       { label: "We mentor you", link: "/we-mentor-you" },
-      { label: "We partner", link: "/funding-scheme-partnership-programs" },
+      { label: "We partner", link: "/we-partner" },
     ],
   },
   {

@@ -107,7 +107,7 @@ async function fetchData(url) {
             );
             const cardAData = await cardARes.json();
             block.data = cardAData.acf || {};
-
+            console.log(cardAData, "cardAData block.data");
             break;
           case "card-type-b-section":
             const cardBRes = await fetch(
@@ -252,7 +252,7 @@ export default async function DynamicPage({ params }) {
           case "card-type-a-section":
             return (
               <div className="Section" key={index}>
-                <CardTypeASection flexed cols={2} data={block.data} />
+                <CardTypeASection data={block.data} />
               </div>
             );
           case "hover-cardsection":

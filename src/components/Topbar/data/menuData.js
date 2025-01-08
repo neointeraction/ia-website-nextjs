@@ -3,7 +3,7 @@ import AP from "@/images/header/ap.png";
 
 export const whatWeDoData = [
   {
-    title: "Accelerate",
+    title: "We Accelerate",
     path: "/accelerate",
     listItems: [
       {
@@ -98,8 +98,8 @@ export const whatWeDoData = [
     borderColor: "#00AAE7",
   },
   {
-    title: "Partnership programs",
-    path: "/partnership-programs",
+    title: "We partner",
+    path: "/we-partner",
     listItems: [
       { text: "Government partnerships" },
       { text: "Corporate partnerships" },
