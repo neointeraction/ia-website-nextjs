@@ -27,6 +27,7 @@ import VideoSection from "@/page-components/VideoSection";
 import SocialMediaFeedSection from "@/page-components/SocialMediaFeedSection";
 import TestimonialSection from "@/page-components/TestimonialSection";
 import EventSection from "@/page-components/EventSection";
+import TextImageSection from "@/page-components/TextImageSection";
 
 const ISR_TIMEOUT = 60;
 
@@ -191,6 +192,15 @@ async function fetchData(url) {
               block.data = eventFeedData.acf || {};
               console.log(eventFeedData, "eventFeedData block.data");
               break;
+            case "text-image-section":
+            const textImgFeedRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/text-image-section/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );
+            const textImgFeedData = await textImgFeedRes.json();
+            block.data = textImgFeedData.acf || {};
+            console.log(textImgFeedData, "textImgFeedData block.data");
+            break;
           default:
             break;
         }
@@ -362,6 +372,13 @@ export default async function DynamicPage({ params }) {
                 <EventSection data={block.data} />
               </div>
             );
+
+            case "text-image-section":
+            return (
+              <div className="Section">
+                <TextImageSection data={block.data} />
+              </div>
+            )
           default:
             return null;
         }
