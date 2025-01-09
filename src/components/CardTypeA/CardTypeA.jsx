@@ -32,7 +32,7 @@ const CardTypeA = ({ icon, title, bodyText, flexed, path, hasBg }) => {
               </Box>
             )}
             <Stack gap="xs">
-              {path !== undefined ? (
+              {path !== null  ? (
                 <UnstyledButton
                   onClick={() => router.push(path)}
                   className="route-link"
@@ -60,7 +60,7 @@ const CardTypeA = ({ icon, title, bodyText, flexed, path, hasBg }) => {
                 className="card-a-img"
               />
             )}
-            {path !== undefined ? (
+            {path !== null ? (
               <UnstyledButton
                 onClick={() => router.push(path)}
                 className="route-link"

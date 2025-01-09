@@ -36,12 +36,15 @@ export const whatWeDoData = [
       {
         text: "Accelerator programs",
         listSubData: [
-          {
-            text: "Accelerator programs",
-            path: "/accelerator-programs",
-            img: RUMS,
-          },
-          { text: "Program detail page", path: "/", img: RUMS },
+        
+          { text: "IA- iAgri", path: "/accelerate-program-iagri", img: RUMS },
+          { text: "IA Cipher", path: "/accelerate-program-iacipher", img: RUMS },
+          { text: "IA Deep Tech", path: "/accelerate-program-ia-deep-tech", img: RUMS },
+          { text: "IA'B2B Tech", path: "/accelerate-program-iab2b-tech", img: RUMS },
+          { text: "IA Finseed", path: "/accelerate-program-ia-finseed", img: RUMS },
+          { text: "IA Pulse", path: "/accelerate-program-ia-pulse", img: RUMS },
+          
+
         ],
       },
       {
