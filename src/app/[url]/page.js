@@ -26,6 +26,7 @@ import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 import VideoSection from "@/page-components/VideoSection";
 import SocialMediaFeedSection from "@/page-components/SocialMediaFeedSection";
 import TestimonialSection from "@/page-components/TestimonialSection";
+import EventSection from "@/page-components/EventSection";
 
 const ISR_TIMEOUT = 60;
 
@@ -181,6 +182,15 @@ async function fetchData(url) {
             block.data = testimonialFeedData.acf || {};
             console.log(testimonialFeedData, "testimonialFeedData block.data");
             break;
+            case "event-section":
+              const eventFeedRes = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_API_URL}/event-section/${block.ID}?acf_format=standard`,
+                { next: { revalidate: ISR_TIMEOUT } }
+              );
+              const eventFeedData = await eventFeedRes.json();
+              block.data = eventFeedData.acf || {};
+              console.log(eventFeedData, "eventFeedData block.data");
+              break;
           default:
             break;
         }
@@ -344,6 +354,12 @@ export default async function DynamicPage({ params }) {
             return (
               <div className="Section">
                 <TestimonialSection data={block.data} />
+              </div>
+            );
+            case "event-section":
+            return (
+              <div className="Section">
+                <EventSection data={block.data} />
               </div>
             );
           default:

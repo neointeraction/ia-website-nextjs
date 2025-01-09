@@ -32,7 +32,9 @@ const EventGrid = ({
           <Box style={{ flexBasis: "150px" }}>
             {date &&
               (() => {
-                const [day, month] = date.split(" ");
+                const [day, month, year] = date.split("/");
+                console.log(day, month, year);
+                const mmyy = new Date(0, month - 1).toLocaleString('en-US', { month: 'short' }) +" " +year 
                 return (
                   <div style={{ textAlign: "center", fontWeight: "bold" }}>
                     <DateText>
@@ -40,7 +42,9 @@ const EventGrid = ({
                         {day}
                       </Box>
                     </DateText>
-                    <MonthText>{month}</MonthText>
+                    <MonthText>
+                      {mmyy}
+                    </MonthText>
                   </div>
                 );
               })()}
@@ -51,7 +55,7 @@ const EventGrid = ({
             <EventSubtitle>{eventSubtitle}</EventSubtitle>
           </Box>
           <Box style={{ flexBasis: "300px" }}>
-            <EventTiming>{eventTiming}</EventTiming>
+            <EventTiming>{eventTiming.from + " - " + eventTiming.to}</EventTiming>
             <EventLocation>{eventLocation}</EventLocation>
           </Box>
           <Box style={{ flexBasis: "200px" }}>
