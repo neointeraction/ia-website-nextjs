@@ -25,6 +25,7 @@ import BannerImg from "@/images/banner1.png";
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 import VideoSection from "@/page-components/VideoSection";
 import SocialMediaFeedSection from "@/page-components/SocialMediaFeedSection";
+import TestimonialSection from "@/page-components/TestimonialSection";
 
 const ISR_TIMEOUT = 60;
 
@@ -170,6 +171,15 @@ async function fetchData(url) {
             const socialMediaFeedData = await socialMediaFeedRes.json();
             block.data = socialMediaFeedData.acf || {};
             console.log(socialMediaFeedData, "socialMediaFeedData block.data");
+            break;
+          case "testimonial-section":
+            const testimonialFeedRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/testimonial-section/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );
+            const testimonialFeedData = await testimonialFeedRes.json();
+            block.data = testimonialFeedData.acf || {};
+            console.log(testimonialFeedData, "testimonialFeedData block.data");
             break;
           default:
             break;
@@ -327,6 +337,13 @@ export default async function DynamicPage({ params }) {
             return (
               <div className="Section">
                 <SocialMediaFeedSection data={block.data} />
+              </div>
+            );
+
+            case "testimonial-section":
+            return (
+              <div className="Section">
+                <TestimonialSection data={block.data} />
               </div>
             );
           default:
