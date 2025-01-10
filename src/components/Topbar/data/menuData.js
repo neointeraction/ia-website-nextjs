@@ -103,12 +103,16 @@ export const whatWeDoData = [
   {
     title: "We partner",
     path: "/we-partner",
-    listItems: [
-      { text: "Government partnerships" },
-      { text: "Corporate partnerships" },
-      { text: "University partnerships" },
-      { text: "VCs" },
-      { text: "Apply as a partner" },
+    listItems: [{
+      text: "Partnerships",
+        listSubData: [
+        { text: "Government partnerships", path:"/funding-scheme-govt-partnership" },
+        { text: "Corporate partnerships", path:"/funding-scheme-corporate-partnership" },
+        { text: "University partnerships", path:"/funding-scheme-university-partnerships" },
+        { text: "VCs", path:"funding-scheme-vcs" },
+        { text: "Apply as a partner", path:"/apply-as-a-partner" },
+        ]
+    }
     ],
     borderColor: "#F7C822",
   },

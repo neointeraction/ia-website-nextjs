@@ -19,6 +19,7 @@ const PageBanner = ({ data }) => {
     button_text,
     banner_image,
     highlight_text,
+    header_without_image
   } = data;
 
   return (
@@ -59,13 +60,16 @@ const PageBanner = ({ data }) => {
             )}
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
-            <Image
+           {banner_image?.url && (
+              <Image
               src={banner_image?.url || ""}
               alt={banner_image?.alt || "Banner Image"}
               width={400}
               height={400}
               style={{ width: "100%", height: "auto" }}
             />
+           )}
+           
           </Grid.Col>
         </Grid>
       </PageBannerContainer>

@@ -28,6 +28,9 @@ import SocialMediaFeedSection from "@/page-components/SocialMediaFeedSection";
 import TestimonialSection from "@/page-components/TestimonialSection";
 import EventSection from "@/page-components/EventSection";
 import TextImageSection from "@/page-components/TextImageSection";
+import WorkspaceSection from "@/page-components/WorkspaceSection";
+import BrandsSection from "@/page-components/BrandsSection";
+import GallerySection from "@/page-components/GallerySection";
 
 const ISR_TIMEOUT = 60;
 
@@ -201,6 +204,33 @@ async function fetchData(url) {
             block.data = textImgFeedData.acf || {};
             console.log(textImgFeedData, "textImgFeedData block.data");
             break;
+            case "workspace-section":
+            const workspaceFeedRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/workspace-section/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );
+            const workspaceFeedData = await workspaceFeedRes.json();
+            block.data = workspaceFeedData.acf || {};
+            console.log(workspaceFeedData, "workspaceFeedData block.data");
+            break;
+            case "brandssection":
+            const brandsFeedRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/brandssection/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );            
+            const brandsFeedData = await brandsFeedRes.json();
+            block.data = brandsFeedData.acf || {};
+            console.log(brandsFeedData, "brandsFeedData block.data");
+            break;
+            case "gallery-section":
+            const galleryFeedRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/gallery-section/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );            
+            const galleryFeedData = await galleryFeedRes.json();
+            block.data = galleryFeedData.acf || {};
+            console.log(galleryFeedData, "galleryFeedData block.data");
+            break;
           default:
             break;
         }
@@ -366,6 +396,7 @@ export default async function DynamicPage({ params }) {
                 <TestimonialSection data={block.data} />
               </div>
             );
+
             case "event-section":
             return (
               <div className="Section">
@@ -378,6 +409,24 @@ export default async function DynamicPage({ params }) {
               <div className="Section">
                 <TextImageSection data={block.data} />
               </div>
+            )
+            case "workspace-section":
+            return (
+              <div className="Section">
+                <WorkspaceSection data={block.data} />
+              </div>
+            )
+            case "brandssection":
+            return (
+              <div className="Section">
+                <BrandsSection data={block.data} />
+              </div>
+            )
+            case "gallery-section":
+            return (
+              <div className="Section">
+                <GallerySection data={block.data} />
+              </div>  
             )
           default:
             return null;
