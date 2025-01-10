@@ -224,18 +224,18 @@ export default function Topbar() {
                 <a
                   href="javascript:void(0)"
                   className={"link"}
-                  onClick={() => router.push("/whoweare")}
+                  onClick={() => router.push("/who-we-are")}
                 >
                   Who are we
                 </a>
                 <a
                   href="javascript:void(0)"
                   className={"link"}
-                  onClick={() => router.push("/whoweare")}
+                  onClick={() => router.push("/portfolio-brands")}
                 >
                   Brands
                 </a>
-                <a href="#" className={"link"}>
+                <a href="#" className={"/ia-coworking"}>
                   Co-working
                 </a>
                 <a href="#" className={"link"}>

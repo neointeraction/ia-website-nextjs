@@ -31,7 +31,11 @@ const images = generateImageArray(componentData);
 
   return (
     <Box component="div" className="container">
-      <SectionTitle data-aos="fade">{title}</SectionTitle>
+      <SectionTitle
+        data-aos="fade"
+        $highlight={highlightedText}
+        title={title}
+      />
       {subtitle && (
         <SectionSubTitle data-aos="fade">{subtitle}</SectionSubTitle>
       )}
