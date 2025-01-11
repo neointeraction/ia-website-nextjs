@@ -22,6 +22,8 @@ import FR from "@/images/funding-resources.png";
 import CO from "@/images/co-working-space.png";
 import BannerImg from "@/images/banner1.png";
 
+import filteredPostsData from "@/mock/data";
+
 import WhyFoundersChoseIA from "@/page-components/WhyFoundersChoseIA";
 import VideoSection from "@/page-components/VideoSection";
 import SocialMediaFeedSection from "@/page-components/SocialMediaFeedSection";
@@ -31,6 +33,7 @@ import TextImageSection from "@/page-components/TextImageSection";
 import WorkspaceSection from "@/page-components/WorkspaceSection";
 import BrandsSection from "@/page-components/BrandsSection";
 import GallerySection from "@/page-components/GallerySection";
+import PostFilter from "@/page-components/PostFilter";
 
 const ISR_TIMEOUT = 60;
 
@@ -159,6 +162,26 @@ async function fetchData(url) {
             block.data = hoverData.acf || {};
             console.log(hoverData, "hoverData block.data");
             break;
+            case "coworking-location":
+              const coworkingLocationRes = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_API_URL}/coworking-location/${block.ID}?acf_format=standard`,
+                { next: { revalidate: ISR_TIMEOUT } }
+              );
+              const coworkingLocationData = await coworkingLocationRes.json();
+              block.data = coworkingLocationData.acf || {};
+              block.data.data = block.data.locations.map(({
+                 city_name, 
+                 location_image, 
+                 location_image_hover,
+                 category }) => ({
+              text: city_name || "",
+              image: location_image || "",
+              image_hover: location_image_hover || "",
+              category,         
+            }));
+
+              break;
+
           case "info-banner":
             const infoBannerRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/info-banner/${block.ID}?acf_format=standard`,
@@ -231,6 +254,18 @@ async function fetchData(url) {
             block.data = galleryFeedData.acf || {};
             console.log(galleryFeedData, "galleryFeedData block.data");
             break;
+
+            case "post-filter":
+            const postFilterRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/post-filter/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );            
+            const postFilterData = await postFilterRes.json();
+            block.data = postFilterData.acf || {};
+            console.log(postFilterData, "postFilterData block.data");
+            break;
+            
+            
           default:
             break;
         }
@@ -426,6 +461,18 @@ export default async function DynamicPage({ params }) {
             return (
               <div className="Section">
                 <GallerySection data={block.data} />
+              </div>  
+            )
+            case "post-filter":
+            return (
+              <div className="Section">              
+                 {/* <PostFilter  postsData={postData} home={false}  /> */} 
+              </div>
+            )
+            case "coworking-location":
+            return (
+              <div className="Section">
+                <HoverCardSection data={block.data} />
               </div>  
             )
           default:
