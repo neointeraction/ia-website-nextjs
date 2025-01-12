@@ -7,7 +7,7 @@ import { List, ListItem } from "../MenuList/MenuList.styles";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const SubNav = ({ data }) => {
+const SubNav = ({ data, closeMenu }) => {
   const router = useRouter();
   const [hoveredItem, setHoveredItem] = useState(null);
 
@@ -25,7 +25,10 @@ const SubNav = ({ data }) => {
                       onMouseEnter={() => setHoveredItem(index)}
                       onMouseLeave={() => setHoveredItem(null)}
                       className="sub-links"
-                      onClick={() => router.push(item.path)}
+                      onClick={() => {
+                        router.push(item.path);
+                        closeMenu();
+                      }}
                     >
                       {item.text}
                     </UnstyledButton>

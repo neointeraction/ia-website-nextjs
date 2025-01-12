@@ -15,11 +15,7 @@ const StyledSectionTitle = styled.h2`
   }
   .highlight {
     font-weight: 600;
-    margin-left: 10px;
     margin-right: 10px;
-    &.hbf {
-      margin-left: 10px;
-    }
   }
   .highlight::after {
     content: "";
@@ -47,9 +43,13 @@ const SectionTitle = ({
       acc.push(<span key={`part-${index}`}>{part}</span>);
 
       if (index < array.length - 1) {
+        const hasPrecedingText = part.trim() !== "";
         acc.push(
-          <span key={`highlight-${index}`} className="highlight">
-            {part.trim() !== "" ? " " : ""}
+          <span
+            key={`highlight-${index}`}
+            className="highlight"
+            style={{ marginLeft: hasPrecedingText ? "10px" : "0" }}
+          >
             {$highlight}
           </span>
         );

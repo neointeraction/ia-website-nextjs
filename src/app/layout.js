@@ -6,6 +6,7 @@ import "@fontsource/open-sauce-two/900.css";
 import "@/styles/globals.css";
 import "@/styles/bootstrap-grid.css";
 import "@mantine/carousel/styles.css";
+import "@mantine/dates/styles.css";
 import "@mantine/core/styles.css";
 
 import {

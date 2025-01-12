@@ -15,7 +15,6 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
@@ -147,4 +146,19 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.filter-select input {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #7e7e7e;
+}
+
+.form-input input,
+.form-input .mantine-DatePickerInput-input,
+.form-input textarea {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #7e7e7e;
+  background-color: transparent;
 }

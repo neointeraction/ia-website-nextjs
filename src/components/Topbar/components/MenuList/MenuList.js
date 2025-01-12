@@ -15,6 +15,7 @@ const MenuList = ({
   borderColor,
   getValue,
   subMenuId,
+  closeMenu,
 }) => {
   const router = useRouter();
 
@@ -22,7 +23,10 @@ const MenuList = ({
     <Card $borderColor={borderColor}>
       <UnstyledButton
         component="a"
-        onClick={() => router.push(path)}
+        onClick={() => {
+          router.push(path);
+          closeMenu();
+        }}
         className="route-title"
       >
         <Group gap="xs" align="center" mb={15}>

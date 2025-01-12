@@ -1,5 +1,7 @@
 import { Box, Group, Stack } from "@mantine/core";
 import {
+  AuthorDesignation,
+  AuthorText,
   TestimonialCardContainer,
   TestimonialInfo,
   TestimonialText,
@@ -22,8 +24,8 @@ const TestimonialCard = ({ name, img, message, designation }) => {
                 className="banner-img-icon"
               />
               <Box>
-                <h4>{name}</h4>
-                <p>{designation}</p>
+                <AuthorText>{name}</AuthorText>
+                <AuthorDesignation>{designation}</AuthorDesignation>
               </Box>
             </Group>
           </TestimonialInfo>

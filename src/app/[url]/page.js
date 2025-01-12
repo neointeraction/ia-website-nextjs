@@ -33,7 +33,6 @@ import TextImageSection from "@/page-components/TextImageSection";
 import WorkspaceSection from "@/page-components/WorkspaceSection";
 import BrandsSection from "@/page-components/BrandsSection";
 import GallerySection from "@/page-components/GallerySection";
-import PostFilter from "@/page-components/PostFilter";
 
 const ISR_TIMEOUT = 60;
 
@@ -162,25 +161,28 @@ async function fetchData(url) {
             block.data = hoverData.acf || {};
             console.log(hoverData, "hoverData block.data");
             break;
-            case "coworking-location":
-              const coworkingLocationRes = await fetch(
-                `${process.env.NEXT_PUBLIC_BASE_API_URL}/coworking-location/${block.ID}?acf_format=standard`,
-                { next: { revalidate: ISR_TIMEOUT } }
-              );
-              const coworkingLocationData = await coworkingLocationRes.json();
-              block.data = coworkingLocationData.acf || {};
-              block.data.data = block.data.locations.map(({
-                 city_name, 
-                 location_image, 
-                 location_image_hover,
-                 category }) => ({
-              text: city_name || "",
-              image: location_image || "",
-              image_hover: location_image_hover || "",
-              category,         
-            }));
+          case "coworking-location":
+            const coworkingLocationRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/coworking-location/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );
+            const coworkingLocationData = await coworkingLocationRes.json();
+            block.data = coworkingLocationData.acf || {};
+            block.data.data = block.data.locations.map(
+              ({
+                city_name,
+                location_image,
+                location_image_hover,
+                category,
+              }) => ({
+                text: city_name || "",
+                image: location_image || "",
+                image_hover: location_image_hover || "",
+                category,
+              })
+            );
 
-              break;
+            break;
 
           case "info-banner":
             const infoBannerRes = await fetch(
@@ -209,16 +211,16 @@ async function fetchData(url) {
             block.data = testimonialFeedData.acf || {};
             console.log(testimonialFeedData, "testimonialFeedData block.data");
             break;
-            case "event-section":
-              const eventFeedRes = await fetch(
-                `${process.env.NEXT_PUBLIC_BASE_API_URL}/event-section/${block.ID}?acf_format=standard`,
-                { next: { revalidate: ISR_TIMEOUT } }
-              );
-              const eventFeedData = await eventFeedRes.json();
-              block.data = eventFeedData.acf || {};
-              console.log(eventFeedData, "eventFeedData block.data");
-              break;
-            case "text-image-section":
+          case "event-section":
+            const eventFeedRes = await fetch(
+              `${process.env.NEXT_PUBLIC_BASE_API_URL}/event-section/${block.ID}?acf_format=standard`,
+              { next: { revalidate: ISR_TIMEOUT } }
+            );
+            const eventFeedData = await eventFeedRes.json();
+            block.data = eventFeedData.acf || {};
+            console.log(eventFeedData, "eventFeedData block.data");
+            break;
+          case "text-image-section":
             const textImgFeedRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/text-image-section/${block.ID}?acf_format=standard`,
               { next: { revalidate: ISR_TIMEOUT } }
@@ -227,7 +229,7 @@ async function fetchData(url) {
             block.data = textImgFeedData.acf || {};
             console.log(textImgFeedData, "textImgFeedData block.data");
             break;
-            case "workspace-section":
+          case "workspace-section":
             const workspaceFeedRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/workspace-section/${block.ID}?acf_format=standard`,
               { next: { revalidate: ISR_TIMEOUT } }
@@ -236,36 +238,35 @@ async function fetchData(url) {
             block.data = workspaceFeedData.acf || {};
             console.log(workspaceFeedData, "workspaceFeedData block.data");
             break;
-            case "brandssection":
+          case "brandssection":
             const brandsFeedRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/brandssection/${block.ID}?acf_format=standard`,
               { next: { revalidate: ISR_TIMEOUT } }
-            );            
+            );
             const brandsFeedData = await brandsFeedRes.json();
             block.data = brandsFeedData.acf || {};
             console.log(brandsFeedData, "brandsFeedData block.data");
             break;
-            case "gallery-section":
+          case "gallery-section":
             const galleryFeedRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/gallery-section/${block.ID}?acf_format=standard`,
               { next: { revalidate: ISR_TIMEOUT } }
-            );            
+            );
             const galleryFeedData = await galleryFeedRes.json();
             block.data = galleryFeedData.acf || {};
             console.log(galleryFeedData, "galleryFeedData block.data");
             break;
 
-            case "post-filter":
+          case "post-filter":
             const postFilterRes = await fetch(
               `${process.env.NEXT_PUBLIC_BASE_API_URL}/post-filter/${block.ID}?acf_format=standard`,
               { next: { revalidate: ISR_TIMEOUT } }
-            );            
+            );
             const postFilterData = await postFilterRes.json();
             block.data = postFilterData.acf || {};
             console.log(postFilterData, "postFilterData block.data");
             break;
-            
-            
+
           default:
             break;
         }
@@ -425,56 +426,56 @@ export default async function DynamicPage({ params }) {
               </div>
             );
 
-            case "testimonial-section":
+          case "testimonial-section":
             return (
               <div className="Section">
                 <TestimonialSection data={block.data} />
               </div>
             );
 
-            case "event-section":
+          case "event-section":
             return (
               <div className="Section">
                 <EventSection data={block.data} />
               </div>
             );
 
-            case "text-image-section":
+          case "text-image-section":
             return (
               <div className="Section">
                 <TextImageSection data={block.data} />
               </div>
-            )
-            case "workspace-section":
+            );
+          case "workspace-section":
             return (
               <div className="Section">
                 <WorkspaceSection data={block.data} />
               </div>
-            )
-            case "brandssection":
+            );
+          case "brandssection":
             return (
               <div className="Section">
                 <BrandsSection data={block.data} />
               </div>
-            )
-            case "gallery-section":
+            );
+          case "gallery-section":
             return (
               <div className="Section">
                 <GallerySection data={block.data} />
-              </div>  
-            )
-            case "post-filter":
-            return (
-              <div className="Section">              
-                 {/* <PostFilter  postsData={postData} home={false}  /> */} 
               </div>
-            )
-            case "coworking-location":
+            );
+          case "post-filter":
+            return (
+              <div className="Section">
+                {/* <PostFilter  postsData={postData} home={false}  /> */}
+              </div>
+            );
+          case "coworking-location":
             return (
               <div className="Section">
                 <HoverCardSection data={block.data} />
-              </div>  
-            )
+              </div>
+            );
           default:
             return null;
         }

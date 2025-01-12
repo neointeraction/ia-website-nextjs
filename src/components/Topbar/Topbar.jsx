@@ -80,6 +80,8 @@ export default function Topbar() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
+  const [menuOpened, { toggle: toggleMenu, close: closeMenu }] =
+    useDisclosure(false);
   const theme = useMantineTheme();
 
   const [subMenuId, setSubMenuId] = useState("");
@@ -132,11 +134,15 @@ export default function Topbar() {
             <HeaderFlexItem $grow>
               <Group h="100%" gap={0} visibleFrom="sm">
                 <Popover
+                  opened={menuOpened}
                   width={"100%"}
                   position="bottom"
                   withArrow
                   shadow="md"
-                  onChange={() => resetSubNavValue()}
+                  onChange={() => {
+                    resetSubNavValue();
+                  }}
+                  onClick={toggleMenu}
                 >
                   <Popover.Target>
                     <UnstyledButton
@@ -183,11 +189,15 @@ export default function Topbar() {
                                     listItems={item.listItems}
                                     borderColor={item.borderColor}
                                     subMenuId={subMenuId}
+                                    closeMenu={closeMenu}
                                   />
                                 </Grid.Col>
                                 {isFiltered && (
                                   <Grid.Col span={9} key={`subnav-${index}`}>
-                                    <SubNav data={subMenuData} />
+                                    <SubNav
+                                      data={subMenuData}
+                                      closeMenu={closeMenu}
+                                    />
                                   </Grid.Col>
                                 )}
                               </React.Fragment>
